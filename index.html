@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESA/Webb Redesign</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="https://esawebb.org/assets/images/esa-jwst-logo.png" alt="ESA/Webb Logo" class="logo-jwst" />
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/">HOME</a></li>
+                <li class="dropdown">
+                    <a href="#">NEWS <i class="fas fa-caret-down"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">IMAGES <i class="fas fa-caret-down"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">VIDEOS <i class="fas fa-caret-down"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">ABOUT <i class="fas fa-caret-down"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">INITIATIVES <i class="fas fa-caret-down"></i></a>
+                </li>
+                <li><a href="/contact/">CONTACT</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="carousel-inner">
+            <div class="slide active"
+                style="background-image: url('https://cdn.esawebb.org/archives/images/banner1920/weic2523a.jpg')">
+                <div class="hero-content">
+                    <span class="slide-date">9 December 2025</span>
+                    <h2>Webb identifies earliest supernova to date, shows host galaxy</h2>
+
+                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                </div>
+            </div>
+
+            <div class="slide"
+                style="background-image: url('https://cdn.esawebb.org/archives/images/banner1920/weic2522a.jpg')">
+                <div class="hero-content">
+                    <span class="slide-date">9 December 2025</span>
+                    <h2>Webb witnesses a feasting supermassive black hole in the early Universe</h2>
+
+                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                </div>
+            </div>
+
+            <div class="slide"
+                style="background-image: url('https://cdn.esawebb.org/archives/images/banner1920/weic2521a.jpg')">
+                <div class="hero-content">
+                    <span class="slide-date">9 December 2025</span>
+                    <h2>Webb studies moon-forming disc around massive planet</h2>
+
+                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                </div>
+            </div>
+
+            <div class="slide"
+                style="background-image: url('https://cdn.esawebb.org/archives/images/banner1920/weic2520a.jpg')">
+                <div class="hero-content">
+                    <span class="slide-date">9 December 2025</span>
+                    <h2>Webb explores largest star-forming cloud in the Milky Way</h2>
+
+                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-indicators">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="section-header">
+            <h2>PICTURE OF THE MONTH</h2>
+        </section>
+
+        <div class="potm-grid">
+            <div class="glass-card potm-large"
+                style="background-image: url('https://cdn.esawebb.org/archives/images/wallpaper1/potm2512a.jpg');">
+                <div class="card-overlay">
+                    <h3>Dwarf stars in a glittering sky</h3>
+                    <p>19 Dec. 2025 — potm2512.</p>
+                    <a href="#" class="btn btn-small">Read More</a>
+                </div>
+            </div>
+
+            <div class="potm-list">
+                <div class="glass-card potm-small"
+                    style="background-image: url('https://cdn.esawebb.org/archives/images/wallpaper1/potm2511a.jpg');">
+                    <div class="small-overlay">
+                        <h4>A dance of dwarf galaxies</h4>
+                    </div>
+                </div>
+                <div class="glass-card potm-small"
+                    style="background-image: url('https://cdn.esawebb.org/archives/images/wallpaper1/potm2510a.jpg');">
+                    <div class="small-overlay">
+                        <h4>The Red Spider Nebula, caught by Webb</h4>
+                    </div>
+                </div>
+                <div class="glass-card potm-small"
+                    style="background-image: url('https://cdn.esawebb.org/archives/images/wallpaper1/potm2509a.jpg');">
+                    <div class="small-overlay">
+                        <h4>Webb brings cosmic lenses into focus</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section-header">
+            <h2>ANNOUNCEMENTS</h2>
+        </section>
+
+        <div class="news-carousel-container">
+            <div class="news-carousel-track">
+
+                <div class="news-item vertical glass-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/ann2501a.jpg" alt="News 1">
+                    </div>
+                    <div class="news-content">
+                        <span class="category-tag">Announcement</span>
+                        <h4>Announcement of the 2026 ESA Hubble and Webb Calendar</h4>
+                        <span class="date">17 Dec. 2025</span>
+                    </div>
+                </div>
+
+                <div class="news-item vertical glass-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/ann2403a.jpg" alt="News 2">
+                    </div>
+                    <div class="news-content">
+                        <span class="category-tag">Announcement</span>
+                        <h4>Announcement of the 2025 ESA Hubble and Webb Calendar</h4>
+                        <span class="date">12 Dec. 2024</span>
+                    </div>
+                </div>
+
+                <div class="news-item vertical glass-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2523a.jpg" alt="News 3">
+                    </div>
+                    <div class="news-content">
+                        <span class="category-tag">Press Release</span>
+                        <h4>Webb identifies earliest supernova to date</h4>
+                        <span class="date">9 Dec. 2025</span>
+                    </div>
+                </div>
+
+                <div class="news-item vertical glass-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2522a.jpg" alt="News 4">
+                    </div>
+                    <div class="news-content">
+                        <span class="category-tag">Press Release</span>
+                        <h4>Webb witnesses a feasting black hole</h4>
+                        <span class="date">19 Nov. 2025</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="news-column">
+                    <h3 class="column-title">PRESS RELEASES</h3>
+                    
+                    <div class="news-item glass-card">
+                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2523a.jpg" alt="News 1">
+                        <div class="news-content">
+                            <h4>Webb identifies earliest supernova to date, shows host galaxy</h4>
+                            <span class="date">9 December 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="news-item glass-card">
+                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2522a.jpg" alt="News 2">
+                        <div class="news-content">
+                            <h4>Webb witnesses a feasting supermassive black hole in the early Universe</h4>
+                            <span class="date">19 November 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="news-item glass-card">
+                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2521a.jpg" alt="News 3">
+                        <div class="news-content">
+                            <h4>Webb studies moon-forming disc around massive planet</h4>
+                            <span class="date">29 September 2025</span>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+
+    </main>
+
+
+    <section class="subscribe-section">
+        <div class="subscribe-content">
+            <h2>SUBSCRIBE TO WEBB NEWS</h2>
+            <p>Subscribe to your email address to receive new updates.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Email address">
+                <button type="button" class="btn btn-gold">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="container social-section">
+        <div class="section-header center-text">
+            <h2>SOCIAL HUB</h2>
+        </div>
+        <div class="social-grid">
+            <div class="social-card glass-card">
+                <div class="social-header">
+                    <div class="social-avatar">ESA</div>
+                    <div class="social-meta">
+                        <strong>Follow us on Facebook</strong>
+                        <span>ESA/Webb</span>
+                    </div>
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="social-body">
+                    <p>ESA/Webb captures the molecular cloud in high definition. Read more about the star formation...
+                    </p>
+                    <a href="#" class="read-more">See More</a>
+                </div>
+                <div class="social-footer">
+                    <span><i class="fa-regular fa-thumbs-up"></i> Like</span>
+                    <span><i class="fa-regular fa-comment"></i> Comment</span>
+                </div>
+            </div>
+
+            <div class="social-card glass-card">
+                <div class="social-header">
+                    <div class="social-avatar">ESA</div>
+                    <div class="social-meta">
+                        <strong>Follow us on Facebook</strong>
+                        <span>ESA/Webb</span>
+                    </div>
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="social-body">
+                    <p>Join our live stream tomorrow at 10:00 AM CET to discuss the latest deep field image.</p>
+                    <a href="#" class="read-more">See More</a>
+                </div>
+                <div class="social-footer">
+                    <span><i class="fa-regular fa-thumbs-up"></i> Like</span>
+                    <span><i class="fa-regular fa-comment"></i> Comment</span>
+                </div>
+            </div>
+
+            <div class="social-card glass-card">
+                <div class="social-header">
+                    <div class="social-avatar">ESA</div>
+                    <div class="social-meta">
+                        <strong>Follow us on Facebook</strong>
+                        <span>ESA/Webb</span>
+                    </div>
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="social-body">
+                    <p>New wallpapers available for download in our gallery section. 4K resolutions included.</p>
+                    <a href="#" class="read-more">See More</a>
+                </div>
+                <div class="social-footer">
+                    <span><i class="fa-regular fa-thumbs-up"></i> Like</span>
+                    <span><i class="fa-regular fa-comment"></i> Comment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Webb</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>FOR SCIENTISTS</h4>
+                <ul>
+                    <li><a href="#">Space Learning</a></li>
+                    <li><a href="#">Scientists Solutions</a></li>
+                    <li><a href="#">Press Releases</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Educators</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col branding-col">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-globe"></i> esa
+                </div>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-tiktok"></i>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>ESA/Webb</p>
+            <p>Copyright © 2025 European Space Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+<script>
+    // Search input toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchContainer = document.querySelector('.search-container');
+        const searchIcon = document.querySelector('.search-icon');
+        const searchInput = document.querySelector('.search-input');
+        if (searchContainer && searchIcon && searchInput) {
+            searchIcon.addEventListener('click', function (e) {
+                searchContainer.classList.toggle('active');
+                if (searchContainer.classList.contains('active')) {
+                    searchInput.focus();
+                } else {
+                    searchInput.value = '';
+                }
+            });
+            // Optional: close input when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!searchContainer.contains(e.target)) {
+                    searchContainer.classList.remove('active');
+                    searchInput.value = '';
+                }
+            });
+            // Optional: close on Escape
+            searchInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    searchContainer.classList.remove('active');
+                    searchInput.value = '';
+                }
+            });
+        }
+    });
+
+    // Carousel functionality
+    let currentIdx = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+        // Reiniciar clases
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Activar el seleccionado
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentIdx = index;
+    }
+
+    function nextSlide() {
+        let next = (currentIdx + 1) % slides.length;
+        showSlide(next);
+    }
+
+    // Permitir clic en los puntos
+    function currentSlide(index) {
+        showSlide(index);
+        resetTimer();
+    }
+
+    // Auto-play cada 5 segundos
+    let timer = setInterval(nextSlide, 5000);
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(nextSlide, 5000);
+    }
+
+    const slider = document.querySelector('.news-carousel-container');
+let isDown = false;
+let startX;
+let scrollLeft;
+let scrollSpeed = 1; // Velocidad del movimiento automático
+let autoPlayId;
+
+// --- FUNCIONALIDAD DE ARRASTRE (DRAG) ---
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.style.cursor = 'grabbing';
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+    stopAutoPlay(); // Pausar mientras el usuario arrastra
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    startAutoPlay(); // Reanudar al salir
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.style.cursor = 'grab';
+    startAutoPlay(); // Reanudar al soltar
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+    // --- FUNCIONALIDAD DE AUTO-PLAY EN BUCLE ---
+    function startAutoPlay() {
+        autoPlayId = setInterval(() => {
+            // Incrementa el scroll
+            slider.scrollLeft += scrollSpeed;
+
+            // Comprueba si llegó al final
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            
+            if (slider.scrollLeft >= maxScroll - 1) {
+                // Opción A: Reset instantáneo (Bucle infinito)
+                slider.scrollLeft = 0;
+                
+                // Opción B: Si prefieres que rebote, cambia la dirección
+                // scrollSpeed *= -1; 
+            }
+        }, 50); // Ajusta este número para suavidad (menor es más fluido)
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayId);
+    }
+
+    // Iniciar al cargar la página
+    startAutoPlay();
+
+    // Pausar si el usuario pasa el mouse por encima (hover)
+    slider.addEventListener('mouseenter', stopAutoPlay);
+</script>
+
+</html>
