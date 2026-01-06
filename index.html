@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
 </head>
 
 <body>
@@ -139,10 +140,12 @@
             <h2>ANNOUNCEMENTS</h2>
         </section>
 
-        <div class="news-carousel-container">
-            <div class="news-carousel-track">
-
-                <div class="news-item vertical glass-card">
+        <!-- Slider main container -->
+        <div class="swiper annSwiper news-carousel-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper news-carousel-track">
+                <!-- Slides -->
+                <div class="swiper-slide news-item vertical glass-card">
                     <div class="card-image-wrapper">
                         <img src="https://cdn.esawebb.org/archives/images/wallpaper1/ann2501a.jpg" alt="News 1">
                     </div>
@@ -153,7 +156,7 @@
                     </div>
                 </div>
 
-                <div class="news-item vertical glass-card">
+                <div class="swiper-slide news-item vertical glass-card">
                     <div class="card-image-wrapper">
                         <img src="https://cdn.esawebb.org/archives/images/wallpaper1/ann2403a.jpg" alt="News 2">
                     </div>
@@ -164,7 +167,7 @@
                     </div>
                 </div>
 
-                <div class="news-item vertical glass-card">
+                <div class="swiper-slide news-item vertical glass-card">
                     <div class="card-image-wrapper">
                         <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2523a.jpg" alt="News 3">
                     </div>
@@ -175,7 +178,7 @@
                     </div>
                 </div>
 
-                <div class="news-item vertical glass-card">
+                <div class="swiper-slide news-item vertical glass-card">
                     <div class="card-image-wrapper">
                         <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2522a.jpg" alt="News 4">
                     </div>
@@ -185,52 +188,22 @@
                         <span class="date">19 Nov. 2025</span>
                     </div>
                 </div>
-
             </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
 
-        <!-- <div class="news-column">
-                    <h3 class="column-title">PRESS RELEASES</h3>
-                    
-                    <div class="news-item glass-card">
-                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2523a.jpg" alt="News 1">
-                        <div class="news-content">
-                            <h4>Webb identifies earliest supernova to date, shows host galaxy</h4>
-                            <span class="date">9 December 2025</span>
-                        </div>
-                    </div>
-
-                    <div class="news-item glass-card">
-                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2522a.jpg" alt="News 2">
-                        <div class="news-content">
-                            <h4>Webb witnesses a feasting supermassive black hole in the early Universe</h4>
-                            <span class="date">19 November 2025</span>
-                        </div>
-                    </div>
-
-                    <div class="news-item glass-card">
-                        <img src="https://cdn.esawebb.org/archives/images/wallpaper1/weic2521a.jpg" alt="News 3">
-                        <div class="news-content">
-                            <h4>Webb studies moon-forming disc around massive planet</h4>
-                            <span class="date">29 September 2025</span>
-                        </div>
-                    </div>
-                </div> -->
-        </div>
+        <section class="container subscribe-section">
+                <h2>SUBSCRIBE TO WEBB NEWS</h2>
+                <p>Subscribe to your email address for trends, and new law updates.</p>
+                <button class="btn btn-gold" type="submit">SUBSCRIBE</button>
+        </section>
 
     </main>
-
-
-    <section class="subscribe-section">
-        <div class="subscribe-content">
-            <h2>SUBSCRIBE TO WEBB NEWS</h2>
-            <p>Subscribe to your email address to receive new updates.</p>
-            <form class="subscribe-form">
-                <input type="email" placeholder="Email address">
-                <button type="button" class="btn btn-gold">SUBSCRIBE</button>
-            </form>
-        </div>
-    </section>
 
     <section class="container social-section">
         <div class="section-header center-text">
@@ -344,6 +317,9 @@
     </footer>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="scripts.js"></script>
+
 <script>
     // Search input toggle
     document.addEventListener('DOMContentLoaded', function () {
@@ -411,69 +387,6 @@
         timer = setInterval(nextSlide, 5000);
     }
 
-    const slider = document.querySelector('.news-carousel-container');
-let isDown = false;
-let startX;
-let scrollLeft;
-let scrollSpeed = 1; // Velocidad del movimiento automático
-let autoPlayId;
-
-// --- FUNCIONALIDAD DE ARRASTRE (DRAG) ---
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.style.cursor = 'grabbing';
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-    stopAutoPlay(); // Pausar mientras el usuario arrastra
-});
-
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    startAutoPlay(); // Reanudar al salir
-});
-
-slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.style.cursor = 'grab';
-    startAutoPlay(); // Reanudar al soltar
-});
-
-slider.addEventListener('mousemove', (e) => {
-    if(!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scrollLeft - walk;
-});
-
-    // --- FUNCIONALIDAD DE AUTO-PLAY EN BUCLE ---
-    function startAutoPlay() {
-        autoPlayId = setInterval(() => {
-            // Incrementa el scroll
-            slider.scrollLeft += scrollSpeed;
-
-            // Comprueba si llegó al final
-            const maxScroll = slider.scrollWidth - slider.clientWidth;
-            
-            if (slider.scrollLeft >= maxScroll - 1) {
-                // Opción A: Reset instantáneo (Bucle infinito)
-                slider.scrollLeft = 0;
-                
-                // Opción B: Si prefieres que rebote, cambia la dirección
-                // scrollSpeed *= -1; 
-            }
-        }, 50); // Ajusta este número para suavidad (menor es más fluido)
-    }
-
-    function stopAutoPlay() {
-        clearInterval(autoPlayId);
-    }
-
-    // Iniciar al cargar la página
-    startAutoPlay();
-
-    // Pausar si el usuario pasa el mouse por encima (hover)
-    slider.addEventListener('mouseenter', stopAutoPlay);
 </script>
 
 </html>
