@@ -31,3 +31,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // ... tu código existente de Swiper ...
+
+    const submenus = document.querySelectorAll('.has-submenu');
+
+    submenus.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const submenu = this.querySelector('.submenu');
+            if (!submenu) return;
+
+            // Reiniciamos la clase para calcular desde la posición original
+            submenu.classList.remove('open-left');
+
+            // Obtenemos las coordenadas del submenú
+            const rect = submenu.getBoundingClientRect();
+            const screenWidth = window.innerWidth;
+
+            // Si el borde derecho del menú supera el ancho de la pantalla
+            if (rect.right > screenWidth) {
+                submenu.classList.add('open-left');
+            }
+        });
+    });
+});

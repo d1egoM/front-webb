@@ -19,6 +19,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-image: url('https://cdn.esawebb.org/archives/images/screen/weic2428a.jpg');
     
@@ -49,6 +50,9 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 body::before {
@@ -69,6 +73,17 @@ body::before {
     opacity: 0.15; 
     
     z-index: -1; /* Envía la imagen detrás de todo el contenido */
+}
+
+body.page-white {
+    background-image: none !important; /* Quita la imagen de fondo */
+    background-color: #ffffff !important; /* Color blanco */
+    color: #333333; /* Cambia el color de texto a oscuro para que sea legible */
+}
+
+/* IMPORTANTE: Eliminamos el pseudo-elemento que tiene la imagen de la ESA */
+body.page-white::before {
+    display: none !important;
 }
 
 a {
@@ -195,9 +210,106 @@ ul {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+/* --- Estilos Base para Dropdowns --- */
+.nav-links li {
+    position: relative; /* Contenedor de referencia */
+}
+
+/* Primer Nivel de Desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: rgba(11, 13, 23, 0.95); /* Fondo oscuro profundo */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 3000;
+}
+
+/* Mostrar cuando se hace hover en el padre */
+.dropdown:hover > .dropdown-menu,
+.has-submenu:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) translateX(0);
+}
+
+/* Estilo de los links de los menús */
+.dropdown-menu li a {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--gold);
+}
+
+/* --- Segundo y Tercer Nivel (Submenús Laterales) --- */
+.submenu {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Aparece a la derecha del elemento padre */
+    min-width: 220px;
+    background: rgba(11, 13, 23, 0.98);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    margin-left: 5px; /* Pequeño espacio para no encimarse */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    z-index: 3001;
+}
+
+/* --- CLASE PARA EVITAR DESBORDAMIENTO --- */
+.submenu.open-left {
+    left: auto; /* Anulamos el left */
+    right: 100%; /* Forzamos a que empiece desde la derecha del padre hacia la izquierda */
+    margin-left: 0;
+    margin-right: 10px; /* Separación en el lado opuesto */
+    transform: translateX(-10px); /* Animación inversa */
+}
+
+/* Ajuste para el hover si es open-left */
+.has-submenu:hover > .submenu.open-left {
+    transform: translateX(0);
+}
+
+/* Iconos de flecha */
+.fa-caret-right {
+    font-size: 0.7rem;
+    margin-left: 10px;
+}
+
 /* Ocultar buscador si no es necesario para el look exacto */
 .search-container {
     display: none;
+}
+
+.dropdown-menu li a, .submenu li a {
+    white-space: nowrap; /* Evita que el texto salte de línea */
+    min-width: 250px;    /* Un poco más de ancho para categorías largas */
+}
+
+/* Efecto visual de 'camino' (breadcrumb) */
+.has-submenu:hover > a {
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
 }
 
 /* HERO SECTION */
@@ -523,9 +635,10 @@ ul {
 .social-background {
     position: relative;
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                      url('https://cdn.esawebb.org/archives/images/large/weic2216b.jpg'); /* Imagen de nebulosa */
+                      url('https://cdn.esawebb.org/archives/images/large/potm2512b.jpg'); /* Imagen de nebulosa */
     
     background-position: center;
+    background-attachment: fixed;
     padding: 100px 0;
     margin: 0 !important; /* Para que ocupe todo el ancho */
     max-width: 100% !important;
@@ -739,6 +852,9 @@ ul {
     .main-hub-header { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 /* FOOTER */
+footer {
+  margin-top: auto;
+}
 /* Contenedor Principal del Footer */
 .site-footer {
     background: rgba(11, 13, 23, 0.98); /* Tu color #0B0D17 con opacidad */
@@ -1058,4 +1174,107 @@ ul {
     background-color: #050505; /* Negro puro */
     padding: 80px 0;
     width: 100%;
+}
+
+/* GRID PRINCIPAL */
+.container-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 300px;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ESTILO DE TARJETAS (White Glassmorphism) */
+.glass-card-light {
+    background: var(--lab-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.glass-card-light h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--gold-accent);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 8px;
+}
+
+/* COLUMNA CENTRAL (Contenido) */
+.entry-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.main-image-container img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.entry-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--lab-text);
+}
+
+/* COLUMNA DERECHA (Botones y Herramientas) */
+.btn-download {
+    display: block;
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--gold-accent);
+    color: var(--gold-accent);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background: var(--gold-accent);
+    color: white;
+}
+
+.compass-placeholder {
+    text-align: center;
+    padding: 20px;
+    color: var(--lab-muted);
+}
+
+.compass-placeholder i {
+    font-size: 3rem;
+    color: var(--gold-accent);
+    margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .container-grid {
+        grid-template-columns: 1fr; /* Apilar en móviles */
+    }
+    
+    .col-metadata, .col-tools {
+        order: 2;
+    }
+    
+    .col-main {
+        order: 1;
+    }
 }

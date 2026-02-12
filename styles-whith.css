@@ -1,0 +1,465 @@
+/* VARIABLES PARA MODO CLARO */
+.page-white {
+    --bg-color: #f8f9fa;
+    --text-main: #1a1a1a;
+    --text-muted: #555;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --nav-border: rgba(0, 0, 0, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --gold: #212529;
+}
+
+body.page-white {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* NAVBAR MEJORADO PARA FONDO CLARO */
+.navbar {
+    position: absolute; /* Cambiado de absolute a sticky para que no tape el contenido */
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2000;
+    padding: 15px 0;
+     /* Fondo base para evitar transparencias raras al scroll */
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--nav-border);
+    border-radius: 12px; /* Estilo 'Pill' más marcado */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave para separar del fondo blanco */
+}
+
+/* Ajuste de colores en links para lectura en blanco */
+.nav-links li a {
+    color: var(--text-main) !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* .nav-links li a:hover {
+    color: var(--gold) !important;
+} */
+
+/* Búsqueda adaptada */
+.search-input {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-main);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* Primer Nivel de Desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff; /* Fondo oscuro profundo */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 3000;
+}
+
+/* Mostrar cuando se hace hover en el padre */
+.dropdown:hover > .dropdown-menu,
+.has-submenu:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) translateX(0);
+}
+
+/* Estilo de los links de los menús */
+.dropdown-menu li a {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--gold);
+}
+
+/* --- Segundo y Tercer Nivel (Submenús Laterales) --- */
+.submenu {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Aparece a la derecha del elemento padre */
+    min-width: 220px;
+    background: #fff;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    margin-left: 5px; /* Pequeño espacio para no encimarse */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    z-index: 3001;
+}
+
+/* --- CLASE PARA EVITAR DESBORDAMIENTO --- */
+.submenu.open-left {
+    left: auto; /* Anulamos el left */
+    right: 100%; /* Forzamos a que empiece desde la derecha del padre hacia la izquierda */
+    margin-left: 0;
+    margin-right: 10px; /* Separación en el lado opuesto */
+    transform: translateX(-10px); /* Animación inversa */
+}
+
+/* Ajuste para el hover si es open-left */
+.has-submenu:hover > .submenu.open-left {
+    transform: translateX(0);
+}
+
+/* ESTRUCTURA DE CONTENIDO (3 COLUMNAS) */
+.detail-wrapper {
+    padding-top: 30px; /* Espacio para que no pegue al navbar */
+}
+
+.container-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 300px; /* Mantiene las 3 columnas */
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* TARJETAS DE INFORMACIÓN */
+.glass-card-light {
+    background: var(--card-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.glass-card-light h3 {
+    color: var(--gold);
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 10px;
+}
+
+/* COLUMNA CENTRAL: TITULO E IMAGEN */
+.entry-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.main-image-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+}
+
+.entry-content {
+    margin-top: 30px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* RESPONSIVE: De 3 columnas a 1 sola para móviles */
+@media (max-width: 1100px) {
+    .container-grid {
+        grid-template-columns: 1fr;
+    }
+    .col-metadata, .col-tools {
+        order: 2; /* Pasa abajo en móvil */
+    }
+    .col-main {
+        order: 1; /* La imagen y texto siempre primero */
+    }
+}
+.logo-esa {
+    height: 65px; /* Tamaño más estilizado para el diseño flotante */
+    display: block;
+}
+.detail-wrapper {
+    margin-top: 80px; /* Ajusta este valor según la altura real del navbar */
+}
+
+/* Estilo para tablas de datos (Metadata) */
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.spec-table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.spec-table tr:last-child {
+    border-bottom: none;
+}
+
+.spec-table th {
+    text-align: left;
+    padding: 12px 8px;
+    color: var(--text-muted);
+    font-weight: 600;
+    width: 40%;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.spec-table td {
+    padding: 12px 8px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.spec-table td a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.spec-table td a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedores de Widgets (Compass y Aladin) */
+.widget-container {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#compass_canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Botones de visualizadores externos */
+/* Contenedor de links de visualizadores */
+.external-viewer-link {
+    display: flex;
+    flex-direction: column; /* Cambiamos a columna para dar espacio */
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.6); /* Un toque más de transparencia */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    gap: 12px;
+}
+
+.external-viewer-link span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.external-viewer-link:hover {
+    transform: translateY(-4px);
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--gold);
+    color: var(--text-main);
+}
+
+/* Logos más grandes */
+.external-viewer-link img {
+    width: 100%;
+    max-width: 180px; /* Tamaño mucho mayor, similar al original */
+    height: auto;
+    filter: grayscale(1) opacity(0.7); /* Estilo elegante por defecto */
+    transition: all 0.4s ease;
+}
+
+.external-viewer-link:hover img {
+    filter: grayscale(0) opacity(1); /* Color total al interactuar */
+    transform: scale(1.05); /* Pequeño pulso */
+}
+
+/* Indicador de color para los filtros */
+.color-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    vertical-align: middle;
+}
+
+/* Ajuste para la alineación del texto en la tabla de filtros */
+.filter-cell {
+    display: flex;
+    align-items: center;
+}
+
+.aladin-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Estilo para el slider (oro) */
+#slider {
+    accent-color: var(--gold);
+    cursor: pointer;
+}
+
+.survey-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.survey-selector label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/* Estilo para la tabla de información */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.info-table th {
+    text-align: left;
+    padding: 8px 0;
+    color: #212529;
+    font-weight: 500;
+    width: 40%;
+}
+
+.info-table td {
+    text-align: right;
+    padding: 8px 0;
+    color: #212529;
+}
+
+/* Buscador */
+.search-flex {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.glass-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(10, 10, 10, 0.699);
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: black;
+    flex-grow: 1;
+}
+
+/* Lista de descargas */
+.download-list {
+    margin-bottom: 20px;
+}
+
+.dl-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dl-icon {
+    font-size: 1.2rem;
+    color: #ff3e3e; /* Rojo característico de los iconos de Webb */
+}
+
+.dl-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.dl-content a {
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.dl-content a:hover {
+    text-decoration: underline;
+}
+
+.dl-size {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.warning-red {
+    color: #ff6b6b !important;
+    font-weight: bold;
+}
+
+.sub-title {
+    font-size: 1rem;
+    margin: 15px 0 10px 0;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
