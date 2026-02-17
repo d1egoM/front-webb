@@ -488,6 +488,19 @@ body.page-white {
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+.dl-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; /* Espacio reservado para el icono */
+}
+
+.dl-icon-img {
+    width: 24px;  /* Tamaño estándar de los iconos de Webb */
+    height: auto;
+    display: block;
+}
+
 .dl-icon {
     font-size: 1.2rem;
     color: #ff3e3e; /* Rojo característico de los iconos de Webb */
@@ -504,18 +517,19 @@ body.page-white {
 }
 
 .dl-content a {
-    color: #00aaff;
+    color: #007bff;
     text-decoration: none;
     font-size: 0.9rem;
 }
 
 .dl-content a:hover {
+    color: #007bff;
     text-decoration: underline;
 }
 
 .dl-size {
     font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
+    color: black
     display: block;
 }
 
