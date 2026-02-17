@@ -4,13 +4,16 @@
     --text-main: #1a1a1a;
     --text-muted: #555;
     --nav-bg: rgba(255, 255, 255, 0.8);
-    --nav-border: rgba(0, 0, 0, 0.1);
+    --nav-border: rgba(0, 0, 0, 0.2);
     --card-bg: rgba(255, 255, 255, 0.9);
     --gold: #212529;
 }
 
+
 body.page-white {
-    background-color: var(--bg-color);
+    background-image: none !important; /* Quita la imagen de fondo */
+    background: linear-gradient(135deg, #ffffff 0%, #e3e9f0 100%) !important; /* Degradado suave de blanco a un gris muy claro */
+    background-attachment: fixed !important; /* Para que el fondo no se mueva al hacer scroll */
     color: var(--text-main);
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -30,17 +33,19 @@ body.page-white {
 
 .navbar-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
+    margin: 0 auto 20px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px;
+    padding: 10px 20px;
     background: var(--nav-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--nav-border);
     border-radius: 12px; /* Estilo 'Pill' más marcado */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave para separar del fondo blanco */
+    box-sizing: border-box
 }
 
 /* Ajuste de colores en links para lectura en blanco */
@@ -141,9 +146,6 @@ body.page-white {
 }
 
 /* ESTRUCTURA DE CONTENIDO (3 COLUMNAS) */
-.detail-wrapper {
-    padding-top: 30px; /* Espacio para que no pegue al navbar */
-}
 
 .container-grid {
     display: grid;
@@ -151,17 +153,18 @@ body.page-white {
     gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
 }
 
 /* TARJETAS DE INFORMACIÓN */
 .glass-card-light {
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--nav-border);
     border-radius: 15px;
     padding: 25px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.05);
 }
 
 .glass-card-light h3 {
@@ -185,6 +188,13 @@ body.page-white {
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    cursor: zoom-in;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.main-image-container img:hover {
+    opacity: 0.9;
+    transform: scale(1.01); /* Un efecto muy sutil de escala */
 }
 
 .entry-content {
@@ -211,49 +221,66 @@ body.page-white {
     display: block;
 }
 .detail-wrapper {
-    margin-top: 80px; /* Ajusta este valor según la altura real del navbar */
+    margin-top: 100px; /* Ajusta este valor según la altura real del navbar */
+    padding-top: 30px; /* Espacio para que no pegue al navbar */
 }
 
 /* Estilo para tablas de datos (Metadata) */
+/* Contenedor de la tarjeta para que el título se parezca al de la ESA */
+.glass-card-light h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+}
+
+/* Estilo unificado para las tablas de datos */
 .spec-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
-
-.spec-table tr {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.spec-table tr:last-child {
-    border-bottom: none;
 }
 
 .spec-table th {
     text-align: left;
-    padding: 12px 8px;
-    color: var(--text-muted);
-    font-weight: 600;
-    width: 40%;
-    text-transform: uppercase;
     font-size: 0.75rem;
-    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #777; /* Color gris suave para las etiquetas */
+    font-weight: 600;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Línea divisoria muy sutil */
+    vertical-align: top;
+    width: 45%; /* Ancho fijo para las etiquetas en AMBAS tablas */
 }
 
 .spec-table td {
-    padding: 12px 8px;
-    color: var(--text-main);
+    text-align: right;
+    font-size: 0.9rem;
+    color: #333; /* Texto más oscuro para el valor */
     font-weight: 500;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+    text-transform: uppercase;
 }
 
+/* Quitamos la línea en la última fila para un acabado más limpio */
+.spec-table tr:last-child th,
+.spec-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Enlaces dentro de las tablas para que no pierdan el estilo */
 .spec-table td a {
-    color: var(--gold);
+    color: #333;
     text-decoration: none;
-    transition: opacity 0.2s;
+    transition: color 0.2s;
 }
 
 .spec-table td a:hover {
+    color: #007bff;
     text-decoration: underline;
 }
 
@@ -398,19 +425,54 @@ body.page-white {
 }
 
 /* Buscador */
+/* Ajuste específico para la sección de búsqueda */
+/* Aseguramos que el padding no sume al ancho total */
+.search-section {
+    padding: 12px 15px; /* Reducimos un poco el padding lateral */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Evita que cualquier cosa salga de la tarjeta */
+}
+
 .search-flex {
     display: flex;
-    gap: 2px;
+    gap: 8px; /* Un poco menos de espacio para que quepa en barras laterales estrechas */
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-icon-only {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #444;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* MUY IMPORTANTE: evita que los iconos se aplasten */
 }
 
 .glass-input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(10, 10, 10, 0.699);
-    border-radius: 4px;
-    padding: 5px 10px;
-    color: black;
-    flex-grow: 1;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: #333;
+    font-size: 0.85rem;
+    outline: none;
+    /* Esto es la clave: */
+    flex-grow: 1; 
+    min-width: 0; /* Permite que el input se encoja si el espacio es muy pequeño */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.glass-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
 /* Lista de descargas */
@@ -429,13 +491,16 @@ body.page-white {
 .dl-icon {
     font-size: 1.2rem;
     color: #ff3e3e; /* Rojo característico de los iconos de Webb */
+    width: 24px;
+    display: flex;
+    justify-content: center;
 }
 
 .dl-content {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
+    flex-direction: column; /* Apila el nombre y el tamaño uno sobre otro */
+    align-items: flex-start; /* Alinea los textos a la izquierda */
+    gap: 2px; /* Espacio mínimo entre el nombre y el tamaño */
 }
 
 .dl-content a {
@@ -451,6 +516,7 @@ body.page-white {
 .dl-size {
     font-size: 0.8rem;
     color: rgba(255,255,255,0.6);
+    display: block;
 }
 
 .warning-red {
@@ -462,4 +528,62 @@ body.page-white {
     font-size: 1rem;
     margin: 15px 0 10px 0;
     border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Estilos para el Modal */
+.image-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000; /* Por encima de todo, incluso del navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Fondo negro casi opaco */
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: zoom-out;
+}
+
+.modal-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+}
+
+.modal-caption {
+    margin-top: 15px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    max-width: 800px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    color: #ff3e3e;
 }

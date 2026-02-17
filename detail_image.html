@@ -362,9 +362,15 @@
             <aside class="col-tools">
                 <div class="glass-card-light search-section">
                     <form class="search-flex" action="/images/" method="GET">
-                        <button type="button" class="btn-icon-only"><i class="fas fa-cog"></i></button>
+                        <button type="button" class="btn-icon-only" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                
                         <input type="text" placeholder="Search..." name="search" class="glass-input">
-                        <button type="submit" class="btn-icon-only"><i class="fas fa-search"></i></button>
+                
+                        <button type="submit" class="btn-icon-only" title="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </form>
                 </div>
 
@@ -450,6 +456,14 @@
     
         </div>
     </main>
+
+    <div id="customModal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-container">
+            <img class="modal-image" id="modalImg">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <i class="fa-brands fa-x-twitter"></i>
@@ -587,6 +601,46 @@
         clearInterval(timer);
         timer = setInterval(nextSlide, 5000);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById("customModal");
+    const modalImg = document.getElementById("modalImg");
+    const captionText = document.getElementById("modalCaption");
+    
+    // 1. Seleccionamos la imagen principal (ajusta la clase si es necesario)
+    const mainImage = document.querySelector('.col-main .main-image-container img');
+    // 2. Seleccionamos el título de la página para usarlo como pie de foto
+    const pageTitle = document.querySelector('h1').innerText;
+
+    if (mainImage) {
+        mainImage.style.cursor = "zoom-in"; // Cambia el cursor para indicar que es clicable
+        
+        mainImage.onclick = function() {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            captionText.innerHTML = pageTitle;
+        }
+    }
+
+    // Cerrar al hacer clic en la (X)
+    document.querySelector('.modal-close').onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Cerrar al hacer clic fuera de la imagen (en el fondo)
+    modal.onclick = function(event) {
+        if (event.target === modal || event.target === document.querySelector('.modal-container')) {
+            modal.style.display = "none";
+        }
+    }
+    
+    // Cerrar con la tecla Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
+});
 
 </script>
 <script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>

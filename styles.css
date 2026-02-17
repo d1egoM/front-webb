@@ -75,11 +75,7 @@ body::before {
     z-index: -1; /* Envía la imagen detrás de todo el contenido */
 }
 
-body.page-white {
-    background-image: none !important; /* Quita la imagen de fondo */
-    background-color: #ffffff !important; /* Color blanco */
-    color: #333333; /* Cambia el color de texto a oscuro para que sea legible */
-}
+
 
 /* IMPORTANTE: Eliminamos el pseudo-elemento que tiene la imagen de la ESA */
 body.page-white::before {
