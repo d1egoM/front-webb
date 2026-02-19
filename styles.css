@@ -94,7 +94,7 @@ ul {
 
 /* UTILITIES */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -161,7 +161,8 @@ ul {
 
 .navbar-container {
     width: 100%;
-    max-width: 1200px; /* Limita el ancho máximo */
+    max-width: 1400px; /* Limita el ancho máximo */
+    margin: 0 auto 20px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -663,8 +664,8 @@ ul {
 
 .social-hub-grid {
     display: grid;
-    grid-template-columns: 610px 520px; /* Sidebar de 450px y terminal flexible */
-    gap: 30px;
+    grid-template-columns: 810px 510px; /* Sidebar de 450px y terminal flexible */
+    gap: 80px;
     align-items: stretch;
 }
 
@@ -695,7 +696,7 @@ ul {
 }
 
 .card-img-container {
-    height: 220px;
+    height: 420px;
     position: relative;
     overflow: hidden;
 }
@@ -855,7 +856,7 @@ footer {
 .site-footer {
     background: rgba(11, 13, 23, 0.98); /* Tu color #0B0D17 con opacidad */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 80px 0 0 0; /* Más espacio arriba */
+    padding: 40px 0 0 0; /* Más espacio arriba */
     color: #e0e0e0;
     font-family: 'Inter', sans-serif;
 }

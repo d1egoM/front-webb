@@ -1,12 +1,12 @@
 /* VARIABLES PARA MODO CLARO */
 .page-white {
     --bg-color: #f8f9fa;
-    --text-main: #1a1a1a;
+    --text-main: #fff;
     --text-muted: #555;
     --nav-bg: rgba(255, 255, 255, 0.8);
-    --nav-border: rgba(0, 0, 0, 0.2);
+    --nav-border: rgba(255, 255, 255, 0.1);
     --card-bg: rgba(255, 255, 255, 0.9);
-    --gold: #212529;
+    --gold: #00a0e9;
 }
 
 
@@ -14,7 +14,7 @@ body.page-white {
     background-image: none !important; /* Quita la imagen de fondo */
     background: linear-gradient(135deg, #ffffff 0%, #e3e9f0 100%) !important; /* Degradado suave de blanco a un gris muy claro */
     background-attachment: fixed !important; /* Para que el fondo no se mueva al hacer scroll */
-    color: var(--text-main);
+    color: black;
     margin: 0;
     font-family: 'Inter', sans-serif;
 }
@@ -39,12 +39,12 @@ body.page-white {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: var(--nav-bg);
+    background: linear-gradient(180deg, #004b6a 0%, #003247 100%);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--nav-border);
     border-radius: 12px; /* Estilo 'Pill' más marcado */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra suave para separar del fondo blanco */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Sombra suave para separar del fondo blanco */
     box-sizing: border-box
 }
 
@@ -57,9 +57,13 @@ body.page-white {
     transition: color 0.3s;
 }
 
-/* .nav-links li a:hover {
+.nav-links li a:hover {
     color: var(--gold) !important;
-} */
+} 
+
+.nav-links i {
+    color: rgba(255, 255, 255, 0.7);
+}
 
 /* Búsqueda adaptada */
 .search-input {
@@ -76,16 +80,18 @@ body.page-white {
     top: 100%;
     left: 0;
     min-width: 220px;
-    background: #fff; /* Fondo oscuro profundo */
+    background: rgba(0, 37, 52, 0.95);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 10px 0;
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 3000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Mostrar cuando se hace hover en el padre */
@@ -103,13 +109,15 @@ body.page-white {
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     letter-spacing: 1px;
+    transition: all 0.2s ease;
 }
 
 .dropdown-menu li a:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     color: var(--gold);
+    padding-left: 25px;
 }
 
 /* --- Segundo y Tercer Nivel (Submenús Laterales) --- */
@@ -118,7 +126,7 @@ body.page-white {
     top: 0;
     left: 100%; /* Aparece a la derecha del elemento padre */
     min-width: 220px;
-    background: #fff;
+    background: rgba(0, 30, 42, 0.98);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -129,6 +137,7 @@ body.page-white {
     transform: translateX(10px);
     transition: all 0.3s ease;
     z-index: 3001;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* --- CLASE PARA EVITAR DESBORDAMIENTO --- */
@@ -143,6 +152,11 @@ body.page-white {
 /* Ajuste para el hover si es open-left */
 .has-submenu:hover > .submenu.open-left {
     transform: translateX(0);
+}
+
+.has-submenu:hover > a {
+    color: var(--gold);
+    background: rgba(0, 160, 233, 0.1);
 }
 
 /* ESTRUCTURA DE CONTENIDO (3 COLUMNAS) */
@@ -167,21 +181,13 @@ body.page-white {
     box-shadow: 0 8px 32px rgba(0,0,0,0.05);
 }
 
-.glass-card-light h3 {
-    color: var(--gold);
-    font-family: 'Rajdhani', sans-serif;
-    text-transform: uppercase;
-    font-size: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding-bottom: 10px;
-}
-
 /* COLUMNA CENTRAL: TITULO E IMAGEN */
 .entry-title {
     font-family: 'Rajdhani', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 20px;
+    color: black;
 }
 
 .main-image-container img {
@@ -228,13 +234,14 @@ body.page-white {
 /* Estilo para tablas de datos (Metadata) */
 /* Contenedor de la tarjeta para que el título se parezca al de la ESA */
 .glass-card-light h3 {
-    font-size: 0.85rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    color: #666;
+    color: black;
     letter-spacing: 1px;
     margin-bottom: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 10px;
+    font-weight: bold;
 }
 
 /* Estilo unificado para las tablas de datos */
@@ -331,7 +338,7 @@ body.page-white {
     background: white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     border-color: var(--gold);
-    color: var(--text-main);
+    color: black;
 }
 
 /* Logos más grandes */
@@ -339,7 +346,7 @@ body.page-white {
     width: 100%;
     max-width: 180px; /* Tamaño mucho mayor, similar al original */
     height: auto;
-    filter: grayscale(1) opacity(0.7); /* Estilo elegante por defecto */
+    /*filter: grayscale(1) opacity(0.7);  Estilo elegante por defecto */
     transition: all 0.4s ease;
 }
 
@@ -601,3 +608,73 @@ body.page-white {
 .modal-close:hover {
     color: #ff3e3e;
 }
+
+.site-footer-w {
+    background: linear-gradient(180deg, #004b6a 0%, #003247 100%); /* Tu color #0B0D17 con opacidad */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0 0 0; /* Más espacio arriba */
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.branding-text-w {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #fff;
+    max-width: 300px;
+}
+
+.footer-col-w h4 {
+    color: #ffd700; /* Dorado para jerarquía técnica */
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Enlaces */
+.footer-col-w ul { list-style: none; padding: 0; margin: 0; }
+.footer-col-w ul li { margin-bottom: 15px; }
+
+.footer-col-w ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.footer-col-w ul li a:hover {
+    color: #00a0e9;
+    padding-left: 5px; /* Pequeño efecto de desplazamiento */
+}
+
+/* Barra Inferior (Legal) */
+.footer-bottom-w {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom-content-w {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.legal-links-w {
+    display: flex;
+    gap: 25px;
+}
+
+.legal-links-w a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.legal-links-w a:hover { color: #00a0e9; }
