@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESA/Webb Redesign</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-whith.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.min.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="page-white">
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="https://esawebb.org/assets/images/esa-jwst-logo.png" alt="ESA/Webb Logo" class="logo-jwst" />
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+
+                <li class="dropdown">
+                    <a href="detail_two_column.html">NEWS <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="has-submenu">
+                            <a href="/news/">Press Releases <i class="fas fa-caret-right"></i></a>
+                            <ul class="submenu">
+                                <li class="has-submenu">
+                                    <a href="#">For Scientists <i class="fas fa-caret-right"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="/news/scientists/newsworthy-results/">Newsworthy Results</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/news/archive/year/2026/">2026</a></li>
+                                <li><a href="/news/archive/year/2025/">2025</a></li>
+                                <li><a href="/news/archive/year/2024/">2024</a></li>
+                                <li><a href="/news/archive/year/2023/">2023</a></li>
+                                <li><a href="/news/archive/year/2022/">2022</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/announcements/">Announcements <i class="fas fa-caret-right"></i></a>
+                            <ul class="submenu">
+                                <li><a href="/announcements/archive/year/2026/">2026</a></li>
+                                <li><a href="/announcements/archive/year/2025/">2025</a></li>
+                                <li><a href="/announcements/archive/year/2024/">2024</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/images/potm/">Picture of the Month <i class="fas fa-caret-right"></i></a>
+                            <ul class="submenu">
+                                <li><a href="/images/potm/archive/year/2025/">2025</a></li>
+                                <li><a href="/images/potm/archive/year/2024/">2024</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="detail_image.html">IMAGES <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/images/">All Images</a></li>
+                        <li><a href="/images/potm/">Picture of the Month</a></li>
+                        <li class="has-submenu">
+                            <a href="#">Categories <i class="fas fa-caret-right"></i></a>
+                            <ul class="submenu">
+                                <li><a href="/images/archive/category/exoplanets/">Exoplanets</a></li>
+                                <li><a href="/images/archive/category/galaxies/">Galaxies</a></li>
+                                <li><a href="/images/archive/category/nebulae/">Nebulae</a></li>
+                                <li><a href="/images/archive/category/stars/">Stars</a></li>
+                                <li><a href="/images/archive/category/solarsystem/">Solar System</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/videos/">VIDEOS <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/videos/">All Videos</a></li>
+                        <li><a href="/video/formats/">Video Formats</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">ABOUT <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="has-submenu">
+                            <a href="#">General <i class="fas fa-caret-right"></i></a>
+                            <ul class="submenu">
+                                <li><a href="/about/general/mision-overview/">Mission Overview</a></li>
+                                <li><a href="/about/general/fact-sheet/">Fact Sheet</a></li>
+                                <li class="has-submenu">
+                                    <a href="#">Instruments <i class="fas fa-caret-right"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="/about/instruments/miri/">MIRI</a></li>
+                                        <li><a href="/about/instruments/nirspec/">NIRSpec</a></li>
+                                        <li><a href="/about/instruments/nircam/">NIRCam</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">Science <i class="fas fa-caret-right"></i></a>
+                            <ul class="submenu">
+                                <li><a href="/about/science/lifecycle-of-stars/">Lifecycle of Stars</a></li>
+                                <li><a href="/about/science/the-early-universe/">Early Universe</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/about/faq">FAQ</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/initiatives/">INITIATIVES <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/initiatives/webbs-first-images/">Webb's First Images</a></li>
+                        <li class="has-submenu">
+                            <a href="#">Public Resources <i class="fas fa-caret-right"></i></a>
+                            <ul class="submenu">
+                                <li><a href="/initiatives/public-resources/virtual-meeting-backgrounds/">Backgrounds</a>
+                                </li>
+                                <li class="has-submenu">
+                                    <a href="#">Calendars <i class="fas fa-caret-right"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="/products/calendars/archive/year/2025/">2025</a></li>
+                                        <li><a href="/products/calendars/archive/year/2024/">2024</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="/contact/">CONTACT</a></li>
+            </ul>
+
+            <div class="search-container" style="color: white;">
+                <input type="text" class="search-input" placeholder="Search...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="logo">
+                <img src="https://esawebb.org/assets/images/esa-logo.png" alt="ESA/Webb Logo" class="logo-esa"
+                    style="width: 100px; height: auto;" />
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="detail-container">
+
+        <section class="main-content">
+            <h3 class="pr_typeid">weic2601 — Photo Release</h3>
+            <h1 class="image-title">Carina Nebula Jets (NIRCam Narrowband Filters)</h1>
+            <p class="date"> 20 January 2026</p>
+            
+            <div class="main-image-container">
+                <img src="https://cdn.esawebb.org/archives/images/newsfeature/weic2601a.jpg" alt="Carina Nebula"
+                    class="img-responsive">
+            </div>
+
+            <article class="image-description">
+                <p class="text-intro">
+                    <strong>First spotted in the early 1800s, the Helix Nebula has become one of the most iconic planetary nebulas
+                        in the sky as it’s recognised for its striking, ring-like shape. One of the closest planetary nebulas to
+                        Earth, it has become a favourite among astronomers using ground- and space-based telescopes to study the
+                        final moments of a dying star in the greatest detail. The NASA/ESA/CSA James Webb Space Telescope has now
+                        leveled those studies up, offering the clearest infrared look at this familiar object.</strong>
+                </p>
+                <p>Webb has zoomed into the Helix Nebula to give an up-close view of the possible eventual fate of our own Sun and
+                    planetary system. In Webb’s high-resolution look, the structure of the gas being shed off by a dying star comes
+                    into full focus. The image reveals how stars recycle their material back into the cosmos, seeding future
+                    generations of stars and planets.</p>
+                <p>In the image from Webb’s NIRCam (<a href="https://esawebb.org/about/instruments/nircam/">Near-Infrared
+                        Camera</a>), pillars that look like comets with extended tails trace the circumference of the inner region
+                    of an expanding shell of gas. Here, blistering winds of hot gas from the dying star are crashing into colder
+                    shells of dust and gas that were shed earlier in its life, sculpting the nebula’s remarkable structure.&nbsp;
+                </p>
+                <p>The iconic Helix Nebula has been imaged by many ground- and space-based observatories over the nearly two
+                    centuries since it was discovered. Webb’s near-infrared view of the target brings these knots to the forefront
+                    compared to the <a href="https://esahubble.org/images/heic0307a/">ethereal image</a> from the NASA/ESA <a
+                        href="esahubble.org">Hubble Space Telescope</a>. Additionally, the new near-infrared look shows the stark
+                    transition between the hottest gas to the coolest gas as the shell expands out from the central white dwarf.</p>
+                <p>This blazing white dwarf, the leftover core of the dying star, lies right at the heart of the nebula, out of the
+                    frame of the Webb image. Its intense radiation lights up the surrounding gas, creating a rainbow of features:
+                    hot ionized gas closest to the white dwarf, cooler molecular hydrogen farther out, and protective pockets where
+                    more complex molecules can begin to form within dust clouds. This interaction is vital, as it’s the raw material
+                    from which new planets may one day form in other star systems.</p>
+                <p>In Webb’s image of the Helix Nebula, colour represents this temperature and chemistry. A touch of a blue hue
+                    marks the hottest gas in this field, energised by intense ultraviolet light. Farther out, the gas cools into the
+                    yellow regions where hydrogen atoms join into molecules. At the outer edges, the reddish tones trace the coolest
+                    material, where gas begins to thin and dust can take shape. Together, the colours show the star’s final breath
+                    transforming into the raw ingredients for new worlds, adding to the wealth of knowledge gained from Webb about
+                    the origin of planets.</p>
+                <p>The Helix Nebula is located 650 light-years away from Earth in the constellation Aquarius. It remains a favourite
+                    among stargazers and professional astronomers alike due to its relative proximity to Earth, and striking
+                    appearance.</p>
+                <h3>More information</h3>
+                <p>Webb is the largest, most powerful telescope ever launched into space. Under an international collaboration
+                    agreement, ESA provided the telescope’s launch service, using the Ariane 5 launch vehicle. Working with
+                    partners, ESA was responsible for the development and qualification of Ariane 5 adaptations for the Webb mission
+                    and for the procurement of the launch service by Arianespace. ESA also provided the workhorse spectrograph
+                    NIRSpec and 50% of the mid-infrared instrument MIRI, which was designed and built by a consortium of nationally
+                    funded European Institutes (The MIRI European Consortium) in partnership with JPL and the University of Arizona.
+                </p>
+                <p>Webb is an international partnership between NASA, ESA and the Canadian Space Agency (CSA).</p>
+                <p>Image Credit: NASA, ESA, CSA, STScI, A. Pagan (STScI)</p>
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="https://www.esa.int/ESA_Multimedia/Images/2026/01/Webb_reveals_Helix_Nebula_in_glistening_detail">Release
+                            on ESA website</a></li>
+                    <li><a href="https://science.nasa.gov/missions/webb/intricacies-of-helix-nebula-revealed-with-nasas-webb/">Release
+                            on NASA website</a></li>
+                </ul>
+                <h3>Contacts</h3>
+                <p>
+                    Bethany Downer<br>
+                    ESA/Webb Chief Science Communications Officer<br>Email: <a href="mailto:Bethany.Downer@esawebb.org">Bethany.Downer@esawebb.org</a></p>
+            </article>
+        </section>
+
+        <aside class="sidebar">
+
+            <div class="glass-card-light search-section">
+                <form class="search-flex" action="/images/" method="GET">
+                    <button type="button" class="btn-icon-only" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+
+                    <input type="text" placeholder="Search..." name="search" class="glass-input">
+
+                    <button type="submit" class="btn-icon-only" title="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="glass-card-light">
+                <h3>About the Image</h3>
+                    <table class="info-table">
+                        <tbody>
+                            <tr>
+                                <th>Release No:</th>
+                                <td>weic2601</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+
+            <aside class="sidebar">
+    <div class="glass-card-light embedded-list">
+        <h3>Images</h3>
+        
+        <div class="embedded-item">
+            <a href="https://esawebb.org/images/weic2601a/" class="item-preview">
+                <img src="https://esawebb.org/media/archives/images/medium/weic2601a.jpg" alt="Helix Nebula">
+                <div class="item-overlay"><i class="fas fa-eye"></i></div>
+            </a>
+            <div class="item-info">
+                <a href="/images/weic2601a/" class="item-id">PR Image weic2601a</a>
+                <p class="item-caption">Helix Nebula (NIRCam image)</p>
+            </div>
+        </div>
+
+        <div class="embedded-item">
+            <a href="https://esawebb.org/images/weic2601b/" class="item-preview">
+                <img src="https://esawebb.org/media/archives/images/medium/weic2601b.jpg" alt="VISTA and Webb">
+                <div class="item-overlay"><i class="fas fa-eye"></i></div>
+            </a>
+            <div class="item-info">
+                <a href="/images/weic2601b/" class="item-id">PR Image weic2601b</a>
+                <p class="item-caption">Helix Nebula (VISTA and Webb images)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card-light embedded-list">
+        <h3>Videos</h3>
+
+        <div class="embedded-item">
+            <a href="/videos/weic2601a/" class="item-preview video-preview">
+                <img src="https://cdn.esawebb.org/archives/videos/videoframe/weic2601a.jpg" alt="Video Nebula">
+                
+            </a>
+            <div class="item-info">
+                <a href="/videos/weic2601a/" class="item-id">PR Video weic2601a</a>
+                <p class="item-caption">The Helix Nebula (Webb, Hubble and Spitzer views)</p>
+            </div>
+        </div>
+                <div class="embedded-item">
+            <a href="/videos/weic2601a/" class="item-preview video-preview">
+                <img src="https://cdn.esawebb.org/archives/videos/videoframe/weic2601b.jpg" alt="Video Nebula">
+                
+            </a>
+            <div class="item-info">
+                <a href="/videos/weic2601a/" class="item-id">PR Video weic2601b</a>
+                <p class="item-caption">Pan Video of the Helix Nebula</p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+        </aside>
+    </main>
+
+        <div id="customModal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-container">
+            <img class="modal-image" id="modalImg">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer-w">
+        <i class="fa-brands fa-x-twitter"></i>
+        <div class="footer-container">
+            <div class="footer-col-w branding-col">
+                <div class="footer-logo">
+                    <img src="https://esawebb.org/assets/images/esa-logo.png" alt="ESA Logo" class="footer-logo" />
+                </div>
+                <p class="branding-text-w">
+                    Exploring the universe, for the benefit of all. The James Webb Space Telescope is an international
+                    partnership between NASA, ESA and CSA.
+                </p>
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" title="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"
+                            viewBox="0 0 448 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                            <path fill="#a0a0a0"
+                                d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z" />
+                        </svg>
+                    </a>
+                    <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" title="Flickr"><i class="fa-brands fa-flickr"></i></a>
+                    <a href="#" title="Giphy"><i class="fa-solid fa-file-video"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col-w">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Webb</a></li>
+                    <li><a href="#">Latest News</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-w">
+                <h4>FOR SCIENTISTS</h4>
+                <ul>
+                    <li><a href="#">Observation Tools</a></li>
+                    <li><a href="#">Data Archive</a></li>
+                    <li><a href="#">Proposals</a></li>
+                    <li><a href="#">Software</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-w">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Educators</a></li>
+                    <li><a href="#">Media Kits</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom-w">
+            <div class="footer-bottom-content-w">
+                <p>Website developed and operated by Enciso Systems.</p>
+                <div class="legal-links-w">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="scripts.js"></script>
+
+<script>
+    // Search input toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchContainer = document.querySelector('.search-container');
+        const searchIcon = document.querySelector('.search-icon');
+        const searchInput = document.querySelector('.search-input');
+        if (searchContainer && searchIcon && searchInput) {
+            searchIcon.addEventListener('click', function (e) {
+                searchContainer.classList.toggle('active');
+                if (searchContainer.classList.contains('active')) {
+                    searchInput.focus();
+                } else {
+                    searchInput.value = '';
+                }
+            });
+            // Optional: close input when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!searchContainer.contains(e.target)) {
+                    searchContainer.classList.remove('active');
+                    searchInput.value = '';
+                }
+            });
+            // Optional: close on Escape
+            searchInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    searchContainer.classList.remove('active');
+                    searchInput.value = '';
+                }
+            });
+        }
+    });
+
+    // Carousel functionality
+    let currentIdx = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+        // Reiniciar clases
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Activar el seleccionado
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentIdx = index;
+    }
+
+    function nextSlide() {
+        let next = (currentIdx + 1) % slides.length;
+        showSlide(next);
+    }
+
+    // Permitir clic en los puntos
+    function currentSlide(index) {
+        showSlide(index);
+        resetTimer();
+    }
+
+    // Auto-play cada 5 segundos
+    let timer = setInterval(nextSlide, 5000);
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(nextSlide, 5000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = document.getElementById("customModal");
+        const modalImg = document.getElementById("modalImg");
+        const captionText = document.getElementById("modalCaption");
+
+        // 1. Seleccionamos la imagen principal (ajusta la clase si es necesario)
+        const mainImage = document.querySelector('.main-content .main-image-container img');
+        // 2. Seleccionamos el título de la página para usarlo como pie de foto
+        const pageTitle = document.querySelector('h1').innerText;
+
+        if (mainImage) {
+            mainImage.style.cursor = "zoom-in"; // Cambia el cursor para indicar que es clicable
+
+            mainImage.onclick = function () {
+                modal.style.display = "flex";
+                let highResUrl = this.src.replace('/newsfeature/', '/screen/');           
+                modalImg.src = highResUrl;            
+                const titleElement = document.querySelector('.image-title');
+    
+                if (titleElement) {
+                    captionText.innerText = titleElement.innerText;
+                } else {
+                // Fallback en caso de que no encuentre el h1
+                    captionText.innerText = "ESA/Webb Image Release";
+                }
+            }
+        }
+
+        // Cerrar al hacer clic en la (X)
+        document.querySelector('.modal-close').onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Cerrar al hacer clic fuera de la imagen (en el fondo)
+        modal.onclick = function (event) {
+            if (event.target === modal || event.target === document.querySelector('.modal-container')) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Cerrar con la tecla Escape
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                modal.style.display = "none";
+            }
+        });
+    });
+
+</script>
+<script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v3/latest/aladin.js"
+    charset="utf-8"></script>
+<script type="text/javascript">
+    function onVrViewLoad() {
+        let aladin;
+        A.init.then(function () {
+            aladin = A.aladin('#aladin-lite-div', { target: "0 0", fov: 100, cooFrame: 'ICRS', fullscreen: true });
+
+            aladin.setBaseImageLayer("P/2MASS/color");
+            var callback = function (ra, dec, fov) {
+                // we must return true, so that the default action (set view to center of image) is performed
+                return true;
+            };
+            aladin.displayJPG('https://cdn.esawebb.org/archives/images/screen/weic2216b.jpg', null, callback);
+
+            var syncImageAlpha = function (value) {
+                aladin.getOverlayImageLayer().setAlpha(value);
+            };
+
+            $("#slider").on('input', function () {
+                var value = $(this).val();
+                syncImageAlpha(value);
+                $("#sliderFullScreen").val(value);
+            });
+
+            $("#sliderFullScreen").on('input', function () {
+                var value = $(this).val();
+                syncImageAlpha(value);
+                $("#slider").val(value);
+            });
+
+            $('input[name=survey]').change(function () {
+                aladin.setImageSurvey($(this).val());
+            });
+        });
+    }
+
+    window.addEventListener('load', onVrViewLoad);
+</script>
+
+</html>
