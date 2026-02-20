@@ -159,6 +159,59 @@ body.page-white {
     background: rgba(0, 160, 233, 0.1);
 }
 
+/* --- DISEÑO DE COLUMNA ÚNICA --- */
+
+.main-single-column {
+    margin: 140px auto 40px; /* Margen superior para no chocar con el navbar sticky */
+    min-height: 80vh;
+}
+
+/* Contenedor estrecho para legibilidad (Golden Width) */
+.container-narrow {
+    max-width: 850px; /* Ancho ideal para lectura de texto */
+    margin: 0 auto;   /* Centrado automático */
+}
+
+/* Encabezado centrado opcional */
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Divisor elegante estilo ESA */
+.divider-esa {
+    width: 60px;
+    height: 4px;
+    background: #00a0e9; /* Azul Celeste */
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+/* Ajuste para que la imagen no sea gigante en una sola columna */
+.container-narrow .one-image-container {
+    margin: 40px 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* Tipografía de artículos en columna única */
+.container-narrow .image-description p {
+    font-size: 1.15rem; /* Un poco más grande al ser columna única */
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.one-image-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);    
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.one-image-container img:hover {
+    opacity: 0.9;
+    transform: scale(1.01); /* Un efecto muy sutil de escala */
+}
+
 /* ESTRUCTURA DE CONTENIDO (2 COLUMNAS) */
 
 /* Contenedor principal con Grid */
