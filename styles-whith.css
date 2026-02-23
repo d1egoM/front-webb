@@ -16,7 +16,7 @@ body.page-white {
     background-attachment: fixed !important; /* Para que el fondo no se mueva al hacer scroll */
     color: black;
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: sans-serif;
 }
 
 /* NAVBAR MEJORADO PARA FONDO CLARO */
@@ -63,6 +63,11 @@ body.page-white {
 
 .nav-links i {
     color: rgba(255, 255, 255, 0.7);
+}
+
+.logo-jwst {
+    height: 65px; /* Tamaño más estilizado para el diseño flotante */
+    display: block;
 }
 
 /* Búsqueda adaptada */
@@ -202,7 +207,7 @@ body.page-white {
 
 .one-image-container img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 5px;
     box-shadow: 0 15px 50px rgba(0,0,0,0.15);    
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -230,7 +235,7 @@ body.page-white {
 
 .pr_typeid {
     color: #d4af37; /* Mantener oro para coherencia */
-    font-family: 'Rajdhani', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif; */
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -240,7 +245,7 @@ body.page-white {
 
 /* Título estilo Webb */
 .image-title {
-    font-family: 'Rajdhani', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif; */
     color: #1a1a1a;
     font-size: 2.8rem;
     font-weight: 700;
@@ -262,19 +267,19 @@ body.page-white {
 .image-description {
     color: #333;
     line-height: 1.7;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
 }
 
 .text-intro strong {
     color: #000;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.6;
 }
 
 /* Subtítulos (More info, Links, etc) */
 .image-description h3 {
     color: #003247; /* El azul del navbar para jerarquía */
-    font-family: 'Rajdhani', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif; */
     text-transform: uppercase;
     font-size: 1.3rem;
     font-weight: 700;
@@ -416,7 +421,7 @@ body.page-white {
 /* Textos informativos */
 .item-id {
     display: block;
-    font-family: 'Rajdhani', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif; */
     color: #00a0e9;
     font-weight: 700;
     text-decoration: none;
@@ -451,7 +456,7 @@ body.page-white {
 
 .container-grid {
     display: grid;
-    grid-template-columns: 280px 1fr 300px; /* Mantiene las 3 columnas */
+    grid-template-columns: 264px 792px 264px; /* Mantiene las 3 columnas */
     gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
@@ -469,9 +474,15 @@ body.page-white {
     box-shadow: 0 8px 32px rgba(0,0,0,0.05);
 }
 
+.glass-card-light:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold); /* Usa el dorado de tus variables */
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
 /* COLUMNA CENTRAL: TITULO E IMAGEN */
 .entry-title {
-    font-family: 'Rajdhani', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif; */
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 20px;
@@ -480,7 +491,7 @@ body.page-white {
 
 .main-image-container img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 5px;
     box-shadow: 0 15px 50px rgba(0,0,0,0.15);
     cursor: zoom-in;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -491,11 +502,43 @@ body.page-white {
     transform: scale(1.01); /* Un efecto muy sutil de escala */
 }
 
+
 .entry-content {
     margin-top: 30px;
     line-height: 1.8;
     font-size: 1.1rem;
     color: var(--text-muted);
+    background: #fff;
+    border: 1px solid var(--gold-accent);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.entry-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.entry-content p a {
+    color: #00a0e9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.entry-content h3 {
+    color: #003247;
+    /* font-family: 'Rajdhani', sans-serif; */
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-bottom: 2px solid #00a0e9;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 /* RESPONSIVE: De 3 columnas a 1 sola para móviles */
@@ -531,6 +574,22 @@ body.page-white {
     padding-bottom: 10px;
     font-weight: bold;
 }
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+.card-overlay h3, .card-overlay p, .small-overlay h4 {
+    color: white;
+}
+.card-overlay a{
+    background: #D4AF37;
+}
+
+.news-item.vertical {    
+    background: rgba(255, 255, 255, 0.8) !important; /* Quita el fondo para que se integre mejor en la columna */  
+    border-color: #fff;
+}
 
 /* Estilo unificado para las tablas de datos */
 .spec-table {
@@ -539,7 +598,7 @@ body.page-white {
 }
 
 .spec-table th {
-    text-align: left;
+    text-align: center;
     font-size: 0.75rem;
     text-transform: uppercase;
     color: #777; /* Color gris suave para las etiquetas */
@@ -551,11 +610,11 @@ body.page-white {
 }
 
 .spec-table td {
-    text-align: right;
+    text-align: left;
     font-size: 0.9rem;
     color: #333; /* Texto más oscuro para el valor */
     font-weight: 500;
-    padding: 12px 8px;
+    padding: 12px 4px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     vertical-align: middle;
     text-transform: uppercase;
@@ -878,7 +937,7 @@ body.page-white {
     color: white;
     font-size: 1rem;
     text-align: center;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
     max-width: 800px;
 }
 
@@ -902,7 +961,7 @@ body.page-white {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px 0 0 0; /* Más espacio arriba */
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
 }
 
 .branding-text-w {
@@ -966,3 +1025,13 @@ body.page-white {
 }
 
 .legal-links-w a:hover { color: #00a0e9; }
+
+.hero::after {
+   background: none !important; /* Quita la imagen de fondo */
+    
+}
+
+.social-background {
+    background-image: none;
+    background: #fff;
+}

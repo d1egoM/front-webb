@@ -10,7 +10,7 @@
     --text-main: #ffffff;
     --text-muted: #a0a0a0;
     --font-heading: 'Rajdhani', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: sans-serif;
 }
 
 * {
@@ -105,7 +105,7 @@ ul {
 }
 
 .section-header h2 {
-    font-family: var(--font-heading);
+    /* font-family: var(--font-heading); */
     font-size: 1.8rem;
     letter-spacing: 2px;
     font-weight: 700;
@@ -121,7 +121,7 @@ ul {
     display: inline-block;
     padding: 10px 25px;
     border-radius: 4px;
-    font-family: var(--font-heading);
+    /* font-family: var(--font-heading); */
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -132,6 +132,7 @@ ul {
     background: linear-gradient(135deg, #EBC05B, #C29622);
     color: #000;
     border: none;
+    margin-top: 8px;
 }
 
 .btn-gold:hover {
@@ -195,7 +196,7 @@ ul {
 .nav-links a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
-    font-size: 0.75rem; /* Fuente pequeña y elegante */
+    font-size: 0.85rem; /* Fuente pequeña y elegante */
     font-weight: 400;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -315,8 +316,8 @@ ul {
     position: relative;
     overflow: hidden;
     background-color: #000;
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    /* -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%); */
     
 }
 
@@ -365,6 +366,12 @@ ul {
     position: relative;
     z-index: 15;
     pointer-events: auto;
+    background: rgba(255, 255, 255, 0.05); /* Fondo muy suave */
+    backdrop-filter: blur(15px); /* Desenfoque del fondo */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde fino sutil */
+    border-radius: 12px; /* Esquinas ligeramente redondeadas como en la foto */
+    padding: 20px;
+    width: 500px;
 }
 
 .slide-date {
@@ -422,7 +429,7 @@ ul {
 
     /* Borde sutil para definir la silueta de la tarjeta */
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    border-radius: 5px;
     overflow: hidden;
     transition: all 0.3s ease;
 
@@ -467,7 +474,7 @@ ul {
 }
 
 .card-overlay h3 {
-    font-family: var(--font-heading);
+    /* font-family: var(--font-heading); */
     font-size: 2rem;
     margin-bottom: 5px;
 }
@@ -507,7 +514,7 @@ ul {
 }
 
 .small-overlay h4 {
-    font-family: var(--font-heading);
+    /* font-family: var(--font-heading); */
     font-size: 1.1rem;
 }
 
@@ -685,7 +692,7 @@ ul {
     overflow: hidden;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 5px;
     transition: all 0.3s ease;
 }
 
@@ -734,6 +741,7 @@ ul {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 0.8rem;
 }
 
 .card-info h3 {
@@ -779,7 +787,7 @@ ul {
 .terminal-id {
     flex: 1;
     text-align: center;
-    font-family: 'Courier New', monospace;
+    /* font-family: 'Courier New', monospace; */
     font-size: 0.75rem;
     letter-spacing: 2px;
     color: #888;
@@ -858,7 +866,7 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px 0 0 0; /* Más espacio arriba */
     color: #e0e0e0;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
 }
 
 .footer-container {
@@ -1119,7 +1127,7 @@ footer {
         rgba(54, 54, 72, 0.95) 100%
     );
     backdrop-filter: blur(10px);
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -1196,7 +1204,7 @@ footer {
 }
 
 .glass-card-light h3 {
-    font-family: var(--font-heading);
+    /* font-family: var(--font-heading); */
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
@@ -1208,7 +1216,7 @@ footer {
 
 /* COLUMNA CENTRAL (Contenido) */
 .entry-title {
-    font-family: var(--font-heading);
+    /* font-family: var(--font-heading); */
     font-size: 2.2rem;
     margin-bottom: 25px;
     line-height: 1.2;
@@ -1221,13 +1229,6 @@ footer {
     margin-bottom: 30px;
 }
 
-.entry-content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: var(--lab-text);
-}
-
 /* COLUMNA DERECHA (Botones y Herramientas) */
 .btn-download {
     display: block;
@@ -1238,7 +1239,7 @@ footer {
     padding: 10px;
     border-radius: 6px;
     margin-bottom: 10px;
-    font-family: var(--font-heading);
+    /* font-family: var(--font-heading); */
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
