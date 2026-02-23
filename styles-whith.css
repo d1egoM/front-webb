@@ -1035,3 +1035,7 @@ body.page-white {
     background-image: none;
     background: #fff;
 }
+
+.hero-content h2 {
+    color: #fff;
+} 
