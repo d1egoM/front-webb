@@ -255,6 +255,8 @@ body.page-white {
     color: #666;
     font-size: 0.95rem;
     margin-bottom: 30px;
+    gap: 6px;
+    align-items: center;
 }
 
 .img-responsive {
@@ -1026,6 +1028,15 @@ body.page-white {
 
 .legal-links-w a:hover { color: #00a0e9; }
 
+.hero {
+    height: 100vh !important;
+}
+
+.slide{
+    height: 100% !important;
+    width: 100% !important;
+}
+
 .hero::after {
    background: none !important; /* Quita la imagen de fondo */
     
@@ -1039,3 +1050,71 @@ body.page-white {
 .hero-content h2 {
     color: #fff;
 } 
+
+.glass-card {
+    border: none;
+    /* Sombra profunda para despegar la tarjeta del fondo estrellado */
+    box-shadow: none;
+}
+
+.card-ann{
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Dejamos que el contenido mande o ajustamos a 450px */
+    min-height: 420px;
+    background: transparent !important; /* Fondo transparente para que se integre mejor con el fondo blanco */
+    border: none !important;
+    border-radius: 24px !important; /* Bordes mucho más redondeados */
+    padding: 0; /* Padding interno igual al de la referencia */
+    gap: 15px; /* Espacio entre la imagen y el texto */
+    box-shadow: none !important;
+    transition: transform 0.3s ease;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.5s ease;
+}
+
+.card-ann:hover img {
+    transform: translateY(-5px);
+}
+
+.card-meta {
+    align-items: center;
+    gap: 15px;            /* Espacio horizontal entre etiqueta y fecha */
+    margin-bottom: 12px;  /* Espacio hacia abajo (antes del título) */
+}
+
+.date i {
+    font-size: 0.85rem;
+    color: #888;          /* Un tono un poco más suave para el icono */
+}
+
+.category-tag {
+    display: inline-block;
+}
+
+.btn-card{
+    margin-top: auto;      /* ¡ESTO lo empuja al fondo automáticamente! */
+    width: fit-content;
+    padding: 6px 15px;
+    font-size: 0.8rem;
+    background: #D4AF37;
+    color: #000;
+    
+}
+
+.news-content h4 {
+    margin-bottom: 20px;  
+}  
+.news-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;    /* Esto hace que el div se expanda */
+    padding: 15px 0;
+}
