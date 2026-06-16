@@ -56,3 +56,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            // This toggles the .is-open class, which our CSS uses to show/hide the menu.
+            navLinks.classList.toggle('is-open');
+        });
+    }
+
+    // Mobile submenu accordion logic
+    const submenuTriggers = document.querySelectorAll('.nav-links .dropdown > a, .nav-links .has-submenu > a');
+
+    submenuTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            // Only apply this logic on mobile screen sizes where hover is not ideal
+            if (window.innerWidth < 768) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.parentElement.classList.toggle('open');
+            }
+        });
+    });
+});
