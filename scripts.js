@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     direction: 'horizontal',
     allowTouchMove: true,
     autoplay: {
-          delay: 1000, // 1 seconds per slide
+          delay: 5000, // 5 seconds per slide
           disableOnInteraction: true,
+          pauseOnMouseEnter: true,
     },
     loop: true,
     speed: 6000,
