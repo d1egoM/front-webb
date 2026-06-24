@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESA/Webb Redesign</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-whith.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,19 +18,23 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="page-white">
+<body>
 
     <nav class="navbar">
         <div class="navbar-container">
             <div class="logo">
                 <img src="https://esawebb.org/assets/images/esa-jwst-logo.png" alt="ESA/Webb Logo" class="logo-jwst" />
             </div>
+
+            <button id="menu-toggle" class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
     
             <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="home.html">Home</a></li>
     
                 <li class="dropdown">
-                    <a href="detail_two_column.html">NEWS <i class="fas fa-caret-down"></i></a>
+                    <a href="detail_two_column.html">News <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li class="has-submenu">
                             <a href="/news/">Press Releases <i class="fas fa-caret-right"></i></a>
@@ -68,7 +71,7 @@
                 </li>
     
                 <li class="dropdown">
-                    <a href="detail_image.html">IMAGES <i class="fas fa-caret-down"></i></a>
+                    <a href="detail_image.html">Images <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="/images/">All Images</a></li>
                         <li><a href="/images/potm/">Picture of the Month</a></li>
@@ -86,7 +89,7 @@
                 </li>
     
                 <li class="dropdown">
-                    <a href="/videos/">VIDEOS <i class="fas fa-caret-down"></i></a>
+                    <a href="/videos/">Videos <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="/videos/">All Videos</a></li>
                         <li><a href="/video/formats/">Video Formats</a></li>
@@ -94,7 +97,7 @@
                 </li>
     
                 <li class="dropdown">
-                    <a href="page_one_column.html">ABOUT <i class="fas fa-caret-down"></i></a>
+                    <a href="page_one_column.html">About <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li class="has-submenu">
                             <a href="#">General <i class="fas fa-caret-right"></i></a>
@@ -123,7 +126,7 @@
                 </li>
     
                 <li class="dropdown">
-                    <a href="/initiatives/">INITIATIVES <i class="fas fa-caret-down"></i></a>
+                    <a href="/initiatives/">Initiatives <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="/initiatives/webbs-first-images/">Webb's First Images</a></li>
                         <li class="has-submenu">
@@ -143,15 +146,17 @@
                     </ul>
                 </li>
     
-                <li><a href="/contact/">CONTACT</a></li>
+                <li><a href="/contact/">Contact</a></li>
             </ul>
     
-            <div class="search-container" style="color: white;">
-                <input type="text" class="search-input" placeholder="Search...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="logo">
-                <img src="https://esawebb.org/assets/images/esa-logo.png" alt="ESA/Webb Logo" class="logo-esa" style="width: 100px; height: auto;" />
+            <div class="nav-right-cluster">
+                <div class="search-container" style="color: white;">
+                    <!-- <input type="text" class="search-input" placeholder="Search..."> -->
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="logo">
+                    <img src="https://esawebb.org/assets/images/esa-logo.png" alt="ESA/Webb Logo" class="logo-esa" style="width: 100px; height: auto;" />
+                </div>
             </div>
         </div>
     </nav>
@@ -203,11 +208,11 @@
                         </tr>
                     </table>
     
-                    <div class="widget-container">
+                    <div class="widget-container compass-wrapper">
                         <canvas id="compass_canvas" width="240" height="140"></canvas>
                     </div>
                     <p id="compass_text" style="font-size: 0.75rem; color: #888; text-align: center; margin-top: 10px;">
-                        North is 7.3° left of vertical
+                        Orientation on Sky
                     </p>
                     <script>
                         // 1. Configuración de datos científicos
@@ -287,20 +292,20 @@
     
                 <div class="glass-card-light">
                     <h3>Sky Map Context</h3>
-                    
+
+                    <div id="aladin-lite-div" class="widget-container" style="height: 400px; padding: 0; overflow: hidden;">
+                    </div>
+
                     <div class="aladin-controls">
                         <div class="control-group">
                             <label>Image Opacity</label>
                             <input type="range" id="slider" min="0" max="1" step="0.01" value="1">
                         </div>
-                        
-                        <div class="survey-selector">
-                            <label><input type="radio" name="survey" value="P/DSS2/color" checked> Visible (DSS2)</label>
-                            <label><input type="radio" name="survey" value="P/2MASS/color"> Infrared (2MASS)</label>
-                        </div>
-                    </div>
 
-                    <div id="aladin-lite-div" class="widget-container" style="height: 400px; padding: 0; overflow: hidden;">
+                        <div class="survey-selector">
+                            <label><input type="radio" name="survey" value="P/DSS2/color"> Visible (DSS2)</label>
+                            <label><input type="radio" name="survey" value="P/2MASS/color" checked> Infrared (2MASS)</label>
+                        </div>
                     </div>
                 </div>
 
@@ -311,29 +316,24 @@
                             <tr style="border-bottom: 2px solid rgba(0,0,0,0.05);">
                                 <th style="padding-bottom: 8px;">Filter</th>
                                 <th style="padding-bottom: 8px;">Wavelength</th>
-                                <th style="padding-bottom: 8px;">Color</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="row-filter-blue">
                                 <td>F200W</td>
                                 <td>2.00 μm</td>
-                                <td class="filter-cell"><span class="color-swatch" style="background-color: #0000ff;"></span>Blue</td>
                             </tr>
-                            <tr>
+                            <tr class="row-filter-cyan">
                                 <td>F335M</td>
                                 <td>3.35 μm</td>
-                                <td class="filter-cell"><span class="color-swatch" style="background-color: #00ffff;"></span>Cyan</td>
                             </tr>
-                            <tr>
+                            <tr class="row-filter-yellow">
                                 <td>F444W</td>
                                 <td>4.44 μm</td>
-                                <td class="filter-cell"><span class="color-swatch" style="background-color: #ffff00;"></span>Yellow</td>
                             </tr>
-                            <tr>
+                            <tr class="row-filter-red">
                                 <td>F470N</td>
                                 <td>4.70 μm</td>
-                                <td class="filter-cell"><span class="color-swatch" style="background-color: #ff0000;"></span>Red</td>
                             </tr>
                         </tbody>
                     </table>
@@ -506,7 +506,7 @@
             </div>
 
             <div class="footer-col-w">
-                <h4>QUICK LINKS</h4>
+                <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About Webb</a></li>
@@ -516,7 +516,7 @@
             </div>
 
             <div class="footer-col-w">
-                <h4>FOR SCIENTISTS</h4>
+                <h4>For Scientists</h4>
                 <ul>
                     <li><a href="#">Observation Tools</a></li>
                     <li><a href="#">Data Archive</a></li>
@@ -526,7 +526,7 @@
             </div>
 
             <div class="footer-col-w">
-                <h4>RESOURCES</h4>
+                <h4>Resources</h4>
                 <ul>
                     <li><a href="#">Educators</a></li>
                     <li><a href="#">Media Kits</a></li>

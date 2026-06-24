@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESA/Webb Redesign</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-whith.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,18 +18,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="page-white">
+<body>
     <nav class="navbar">
         <div class="navbar-container">
             <div class="logo">
                 <img src="https://esawebb.org/assets/images/esa-jwst-logo.png" alt="ESA/Webb Logo" class="logo-jwst" />
             </div>
 
+            <button id="menu-toggle" class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="home.html">Home</a></li>
 
                 <li class="dropdown">
-                    <a href="detail_two_column.html">NEWS <i class="fas fa-caret-down"></i></a>
+                    <a href="detail_two_column.html">News <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li class="has-submenu">
                             <a href="/news/">Press Releases <i class="fas fa-caret-right"></i></a>
@@ -67,7 +70,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="detail_image.html">IMAGES <i class="fas fa-caret-down"></i></a>
+                    <a href="detail_image.html">Images <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="/images/">All Images</a></li>
                         <li><a href="/images/potm/">Picture of the Month</a></li>
@@ -85,7 +88,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="/videos/">VIDEOS <i class="fas fa-caret-down"></i></a>
+                    <a href="/videos/">Videos <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="/videos/">All Videos</a></li>
                         <li><a href="/video/formats/">Video Formats</a></li>
@@ -93,7 +96,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="page_one_column.html">ABOUT <i class="fas fa-caret-down"></i></a>
+                    <a href="page_one_column.html">About <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li class="has-submenu">
                             <a href="#">General <i class="fas fa-caret-right"></i></a>
@@ -122,7 +125,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="/initiatives/">INITIATIVES <i class="fas fa-caret-down"></i></a>
+                    <a href="/initiatives/">Initiatives <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="/initiatives/webbs-first-images/">Webb's First Images</a></li>
                         <li class="has-submenu">
@@ -142,16 +145,17 @@
                     </ul>
                 </li>
 
-                <li><a href="/contact/">CONTACT</a></li>
+                <li><a href="/contact/">Contact</a></li>
             </ul>
 
-            <div class="search-container" style="color: white;">
-                <input type="text" class="search-input" placeholder="Search...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="logo">
-                <img src="https://esawebb.org/assets/images/esa-logo.png" alt="ESA/Webb Logo" class="logo-esa"
-                    style="width: 100px; height: auto;" />
+            <div class="nav-right-cluster">
+                <div class="search-container" style="color: white;">
+                    <!-- <input type="text" class="search-input" placeholder="Search..."> -->
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="logo">
+                    <img src="https://esawebb.org/assets/images/esa-logo.png" alt="ESA/Webb Logo" class="logo-esa" style="width: 100px; height: auto;" />
+                </div>
             </div>
         </div>
     </nav>
@@ -159,12 +163,12 @@
     <header class="hero">
         <div class="carousel-inner">
             <div class="slide active"
-                style="background-image: url('https://cdn.esawebb.org/archives/images/banner1920/weic2523a.jpg')">
+                style="background-image: url('https://cdn.esawebb.org/archives/images/banner1920/weic2607a.jpg')">
                 <div class="hero-content">
                     <span class="slide-date">9 December 2025</span>
                     <h2 style="margin-bottom: 15px;">Webb identifies earliest supernova to date, shows host galaxy</h2>
 
-                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                    <a href="#" class="btn btn-primary">Explore all Press Releases</a>
                 </div>
             </div>
 
@@ -174,7 +178,7 @@
                     <span class="slide-date">9 December 2025</span>
                     <h2 style="margin-bottom: 15px;">Webb witnesses a feasting supermassive black hole in the early Universe</h2>
 
-                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                    <a href="#" class="btn btn-primary">Explore all Press Releases</a>
                 </div>
             </div>
 
@@ -184,7 +188,7 @@
                     <span class="slide-date">9 December 2025</span>
                     <h2 style="margin-bottom: 15px;">Webb studies moon-forming disc around massive planet</h2>
 
-                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                    <a href="#" class="btn btn-primary">Explore all Press Releases</a>
                 </div>
             </div>
 
@@ -194,7 +198,7 @@
                     <span class="slide-date">9 December 2025</span>
                     <h2 style="margin-bottom: 15px;">Webb explores largest star-forming cloud in the Milky Way</h2>
 
-                    <a href="#" class="btn btn-gold">Explore all Press Releases</a>
+                    <a href="#" class="btn btn-primary">Explore all Press Releases</a>
                 </div>
             </div>
         </div>
@@ -210,7 +214,7 @@
     <main class="container">
 
         <section class="section-header">
-            <h2>PICTURE OF THE MONTH</h2>
+            <h2>Picture of the Month</h2>
         </section>
 
         <div class="potm-grid">
@@ -219,7 +223,7 @@
                 <div class="card-overlay">
                     <h3>Dwarf stars in a glittering sky</h3>
                     <p>19 Dec. 2025 — potm2512.</p>
-                    <a href="#" class="btn btn-small">Read More</a>
+                    <a href="#" class="btn btn-primary">Read More</a>
                 </div>
             </div>
 
@@ -246,7 +250,7 @@
         </div>
 
         <section class="section-header">
-            <h2>ANNOUNCEMENTS</h2>
+            <h2>Announcements</h2>
         </section>
 
         <!-- Slider main container -->
@@ -320,25 +324,22 @@
         </div>
     </main>
 
-    <div class="subscribe-background " style="background: #0a0b10;">
-        <section class="container subscribe-section">
-            <h2>SUBSCRIBE TO WEBB NEWS</h2>
-            <p>Subscribe to your email address for trends, and new law updates.</p>
-            <button class="btn btn-gold" type="submit">SUBSCRIBE</button>
-        </section>
-    </div>
-
     <div class="social-background">
         <section class="container social-hub-wrapper">
             <div class="social-hub-grid">
 
                 <div class="social-sidebar">
+                    <section class="subscribe-section">
+                        <h2>Subscribe to Webb News</h2>
+                        <p>Subscribe to your email address for trends, and new law updates.</p>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </section>
                     <div class="glass-card big-social-card">
                         <div class="card-img-container">
                             <img src="https://cdn.esawebb.org/archives/images/screen/ann2201a.jpg" alt="Newsletter">
                         </div>
                         <div class="card-info">
-                            <span class="">SPACE SPARKS VIDEO SERIES</span>
+                            <span class="">Space Sparks Video Series</span>
                         </div>
                     </div>
 
@@ -347,7 +348,7 @@
                             <img src="https://cdn.esawebb.org/archives/images/screen/potm2511a.jpg" alt="Newsletter">
                         </div>
                         <div class="card-info">
-                            <span class="">ESA/HUBBLE/WEBB SCIENCE NEWSLETTER - December 2025</span>
+                            <span class="">ESA/Hubble/Webb Science Newsletter - December 2025</span>
                         </div>
                     </div>
                 </div>
@@ -383,23 +384,26 @@
         <div class="gallery-wrapper">
             <div class="section-header" style="margin-top: 0;">
                 <h2 class="image-title text-center" style="color: #fff;">
-                    WEBB'S FIRST IMAGES RELEASE: JULY, 2022
+                    Webb's First Images Release: July, 2022
                 </h2>
             </div>
 
             <div class="first-images-grid">
-                <div class="grid-item">
+                <a href="https://esawebb.org/news/weic2207/" class="grid-item">
                     <img src="https://cdn.esawebb.org/archives/images/thumb350x/weic2207a.jpg" alt="Nebula">
-                </div>
-                <div class="grid-item">
+                </a>
+                <a href="https://esawebb.org/news/weic2205/" class="grid-item">
                     <img src="https://cdn.esawebb.org/archives/images/thumb350x/weic2205a.jpg" alt="Galaxy">
-                </div>
-                <div class="grid-item">
+                </a>
+                <a href="https://esawebb.org/news/weic2208/" class="grid-item">
                     <img src="https://cdn.esawebb.org/archives/images/thumb350x/weic2208a.jpg" alt="Stars">
-                </div>
-                <div class="grid-item">
+                </a>
+                <a href="https://esawebb.org/news/weic2209/" class="grid-item">
                     <img src="https://cdn.esawebb.org/archives/images/thumb350x/weic2209a.jpg" alt="Deep Field">
-                </div>
+                </a>
+            </div>
+            <div class="archive-link-container">
+                <a href="https://esawebb.org/initiatives/webbs-first-images/" class="btn-archive">Explore Image Archive →</a>
             </div>
         </div>
     </section>
@@ -433,7 +437,7 @@
             </div>
 
             <div class="footer-col-w">
-                <h4>QUICK LINKS</h4>
+                <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About Webb</a></li>
@@ -443,7 +447,7 @@
             </div>
 
             <div class="footer-col-w">
-                <h4>FOR SCIENTISTS</h4>
+                <h4>For Scientists</h4>
                 <ul>
                     <li><a href="#">Observation Tools</a></li>
                     <li><a href="#">Data Archive</a></li>
@@ -453,7 +457,7 @@
             </div>
 
             <div class="footer-col-w">
-                <h4>RESOURCES</h4>
+                <h4>Resources</h4>
                 <ul>
                     <li><a href="#">Educators</a></li>
                     <li><a href="#">Media Kits</a></li>
