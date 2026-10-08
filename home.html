@@ -144,7 +144,8 @@
                         </li>
                     </ul>
                 </li>
-
+                <li><a href="/newsletters/">Newsletters</a></li>
+                <li><a href="/media/">Media</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
 
@@ -208,6 +209,13 @@
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        <!-- NUEVO: Flechas de navegación del Hero (Press Releases) -->
+        <div class="hero-arrow hero-prev" onclick="prevSlide(); resetTimer();">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="hero-arrow hero-next" onclick="nextSlide(); resetTimer();">
+            <i class="fas fa-chevron-right"></i>
         </div>
     </header>
 
@@ -319,8 +327,8 @@
             <div class="swiper-pagination"></div>
 
             <!-- If we need navigation buttons -->
-            <!-- <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div> -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </main>
 
@@ -330,8 +338,16 @@
 
                 <div class="social-sidebar">
                     <section class="subscribe-section">
-                        <h2>Subscribe to Webb News</h2>
-                        <p>Subscribe to your email address for trends, and new law updates.</p>
+                        <!-- Ícono decorativo de fondo (marca de agua) -->
+                        <i class="fa-regular fa-envelope"
+                            style="position: absolute; right: -20px; top: -10px; font-size: 140px; color: rgba(0, 50, 71, 0.05); transform: rotate(-15deg); pointer-events: none;"></i>
+                        
+                        <!-- Título con ícono -->
+                        <div style="position: relative; z-index: 1; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-envelope-open-text" style="color: #00a0e9; font-size: 1.5rem;"></i>
+                            <h2 style="margin: 0;">Subscribe to Webb News</h2>
+                        </div>
+                        <p>Subscribe to our newsletter to receive the latest James Webb Space Telescope news, and scientific discoveries.</p>
                         <button class="btn btn-primary" type="submit">Subscribe</button>
                     </section>
                     <div class="glass-card big-social-card">
@@ -357,21 +373,16 @@
                     <div class="main-hub-header">
                         <h2 style="color: #0a0b10;">ESA/Webb Facebook</h2>
                     </div>
-
+                
+                    <!-- Conservamos terminal-window para mantener dimensiones y alto -->
                     <div class="terminal-window glass-card">
-                        <div class="terminal-bar">
-                            <div class="terminal-dots">
-                                <span></span><span></span><span></span>
-                            </div>
-                            <div class="terminal-id">ESA_WEBB_FB_CHANNEL</div>
-                        </div>
-                        <div class="terminal-body">
+                        <div class="terminal-body" style="height: 100%;">
                             <div class="iframe-scaler">
                                 <iframe
                                     src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FESAWebb%2F&tabs=timeline&width=1000&height=1000&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true"
                                     class="fb-terminal-iframe"
                                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                                </iframe>
+                            </iframe>
                             </div>
                         </div>
                     </div>
@@ -379,12 +390,47 @@
             </div>
         </section>
     </div>
+    
+    <!-- NEW: VIDEO PLAYBACK SECTION     -->
+    <section class="video-playback-section">
+        <div class="video-container">
+            <!-- Video de fondo (Ejemplo: Paneo de los Pilares de la Creación o la Nebulosa Carina) -->
+            <video autoplay muted loop playsinline class="background-video">
+                <source src="https://cdn.esawebb.org/archives/videos/hd_1080p25_screen/weic2619a.mp4" type="video/mp4">
+            </video>
+            
+            <div class="video-overlay">
+                <div class="video-content">
+                    <span class="video-tag">Featured Video</span>
+                    <h2>Journey through the Stars</h2>
+                    
+                    <button id="openVideoModal" class="btn btn-primary video-btn">
+                        <i class="fas fa-play"></i> Watch Full Video
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- VIDEO MODAL POPUP                          -->
+    <!-- ========================================== -->
+    <div id="videoModal" class="video-modal">
+        <span class="video-modal-close" id="closeVideoModal">&times;</span>
+        <div class="video-modal-content">
+            <!-- Video con controles completos -->
+            <video id="fullVideoPlayer" controls>
+                <!-- Usamos el mismo video de ejemplo o puedes poner otro link oficial de la ESA -->
+                <source src="https://cdn.esawebb.org/archives/videos/hd_1080p25_screen/weic2619a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <section class="library-section">
         <div class="gallery-wrapper">
             <div class="section-header" style="margin-top: 0;">
                 <h2 class="image-title text-center" style="color: #fff;">
-                    Webb's First Images Release: July, 2022
+                    Webb’s Image Archive
                 </h2>
             </div>
 
@@ -483,7 +529,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 <script src="scripts.js"></script>
 
-<script>
+<!-- <script>
     // Search input toggle
     document.addEventListener('DOMContentLoaded', function () {
         const searchContainer = document.querySelector('.search-container');
@@ -550,6 +596,6 @@
         timer = setInterval(nextSlide, 5000);
     }
 
-</script>
+</script> -->
 
 </html>

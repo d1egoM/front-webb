@@ -309,31 +309,80 @@
                     </div>
                 </div>
 
-                <div class="glass-card-light">
-                    <h3>Filters & Colors</h3>
+                <div class="glass-card-light exposure-card">
+                    <h3 class="section-subheading">Colours & filters</h3>
                     <table class="spec-table">
                         <thead>
-                            <tr style="border-bottom: 2px solid rgba(0,0,0,0.05);">
-                                <th style="padding-bottom: 8px;">Filter</th>
-                                <th style="padding-bottom: 8px;">Wavelength</th>
+                            <tr>
+                                <th>Band</th>
+                                <th>Wavelength</th>
+                                <th>Telescope</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="row-filter-blue">
-                                <td>F200W</td>
-                                <td>2.00 μm</td>
+                            <tr>
+                                <td>
+                                    <span class="band-label band-color-optical">Optical</span>
+                                    <span class="band-subtext">z</span>
+                                </td>
+                                <td>900 nm</td>
+                                <td>
+                                    <a href="#">James Webb Space Telescope</a>
+                                    <span class="sub-instrument">NIRCam</span>
+                                </td>
                             </tr>
-                            <tr class="row-filter-cyan">
-                                <td>F335M</td>
+                            <tr>
+                                <td>
+                                    <span class="band-label band-color-blue">Infrared</span>
+                                    <span class="band-subtext">P-alpha</span>
+                                </td>
+                                <td>1.87 μm</td>
+                                <td>
+                                    <a href="#">James Webb Space Telescope</a>
+                                    <span class="sub-instrument">NIRCam</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="band-label band-color-cyan">Infrared</span>
+                                </td>
+                                <td>2.0 μm</td>
+                                <td>
+                                    <a href="#">James Webb Space Telescope</a>
+                                    <span class="sub-instrument">NIRCam</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="band-label band-color-yellow">Infrared</span>
+                                    <span class="band-subtext">PAH</span>
+                                </td>
                                 <td>3.35 μm</td>
+                                <td>
+                                    <a href="#">James Webb Space Telescope</a>
+                                    <span class="sub-instrument">NIRCam</span>
+                                </td>
                             </tr>
-                            <tr class="row-filter-yellow">
-                                <td>F444W</td>
+                            <tr>
+                                <td>
+                                    <span class="band-label band-color-orange">Infrared</span>
+                                </td>
                                 <td>4.44 μm</td>
+                                <td>
+                                    <a href="#">James Webb Space Telescope</a>
+                                    <span class="sub-instrument">NIRCam</span>
+                                </td>
                             </tr>
-                            <tr class="row-filter-red">
-                                <td>F470N</td>
-                                <td>4.70 μm</td>
+                            <tr>
+                                <td>
+                                    <span class="band-label band-color-red">Infrared</span>
+                                    <span class="band-subtext">molecular hydrogen</span>
+                                </td>
+                                <td>4.7 μm</td>
+                                <td>
+                                    <a href="#">James Webb Space Telescope</a>
+                                    <span class="sub-instrument">NIRCam</span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -552,114 +601,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 <script src="scripts.js"></script>
 
-<script>
-    // Search input toggle
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchContainer = document.querySelector('.search-container');
-        const searchIcon = document.querySelector('.search-icon');
-        const searchInput = document.querySelector('.search-input');
-        if (searchContainer && searchIcon && searchInput) {
-            searchIcon.addEventListener('click', function (e) {
-                searchContainer.classList.toggle('active');
-                if (searchContainer.classList.contains('active')) {
-                    searchInput.focus();
-                } else {
-                    searchInput.value = '';
-                }
-            });
-            // Optional: close input when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!searchContainer.contains(e.target)) {
-                    searchContainer.classList.remove('active');
-                    searchInput.value = '';
-                }
-            });
-            // Optional: close on Escape
-            searchInput.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    searchContainer.classList.remove('active');
-                    searchInput.value = '';
-                }
-            });
-        }
-    });
 
-    // Carousel functionality
-    let currentIdx = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-
-    function showSlide(index) {
-        // Reiniciar clases
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        // Activar el seleccionado
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentIdx = index;
-    }
-
-    function nextSlide() {
-        let next = (currentIdx + 1) % slides.length;
-        showSlide(next);
-    }
-
-    // Permitir clic en los puntos
-    function currentSlide(index) {
-        showSlide(index);
-        resetTimer();
-    }
-
-    // Auto-play cada 5 segundos
-    let timer = setInterval(nextSlide, 5000);
-
-    function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(nextSlide, 5000);
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById("customModal");
-    const modalImg = document.getElementById("modalImg");
-    const captionText = document.getElementById("modalCaption");
-    
-    // 1. Seleccionamos la imagen principal (ajusta la clase si es necesario)
-    const mainImage = document.querySelector('.col-main .main-image-container img');
-    // 2. Seleccionamos el título de la página para usarlo como pie de foto
-    const pageTitle = document.querySelector('h1').innerText;
-
-    if (mainImage) {
-        mainImage.style.cursor = "zoom-in"; // Cambia el cursor para indicar que es clicable
-        
-        mainImage.onclick = function() {
-            modal.style.display = "flex";
-            modalImg.src = this.src;
-            captionText.innerHTML = pageTitle;
-        }
-    }
-
-    // Cerrar al hacer clic en la (X)
-    document.querySelector('.modal-close').onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Cerrar al hacer clic fuera de la imagen (en el fondo)
-    modal.onclick = function(event) {
-        if (event.target === modal || event.target === document.querySelector('.modal-container')) {
-            modal.style.display = "none";
-        }
-    }
-    
-    // Cerrar con la tecla Escape
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape") {
-            modal.style.display = "none";
-        }
-    });
-});
-
-</script>
 <script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
 <script type="text/javascript">
 function onVrViewLoad() {

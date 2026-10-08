@@ -164,7 +164,7 @@ ul {
 .nav-links li a {
     color: var(--text-main) !important;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-decoration: none;
     transition: color 0.3s;
     white-space: nowrap;
@@ -295,6 +295,45 @@ ul {
 .carousel-inner, .slide {
     width: 100% !important;
     height: 100% !important;
+}
+
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    color: rgba(255, 255, 255, 0.85);
+    /* background-color: rgba(255, 255, 255, 0.85); */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* box-shadow: 0 2px 6px rgba(0,0,0,0.15); */
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.hero-arrow:hover {
+    background-color: #ffffff;
+    color: #003247;
+    transform: translateY(-50%) scale(1.05); /* Efecto hover sutil */
+}
+
+.hero-prev {
+    left: 30px; /* Separación del borde izquierdo */
+}
+
+.hero-next {
+    right: 30px; /* Separación del borde derecho */
+}
+
+/* En móviles, las pegamos más a los bordes o las achicamos */
+@media (max-width: 768px) {
+    .hero-prev { left: 10px; }
+    .hero-next { right: 10px; }
 }
 
 .slide {
@@ -467,9 +506,10 @@ ul {
 /* ANNOUNCEMENTS CAROUSEL from styles.css */
 .news-carousel-container {
     width: 100%;
-    padding: 20px 0 40px 0;
     position: relative;
     overflow: hidden;
+    padding: 20px 45px 40px 45px !important; /* 45px de margen a izquierda y derecha */
+    box-sizing: border-box;
 }
 
 .news-carousel-track {
@@ -558,7 +598,62 @@ ul {
     font-size: 1.1rem;
     line-height: 1.4;
     min-height: 72px;  
-}  
+}
+
+/* ==========================================================================
+   ANNOUNCEMENTS SWIPER ARROWS (Corregidas sobre la imagen)
+   ========================================================================== */
+
+/* Posicionamiento en el centro de la imagen (altura imagen: 200px) */
+.news-carousel-container .swiper-button-prev,
+.news-carousel-container .swiper-button-next {
+    top: 120px !important; /* 20px de padding superior + 100px (mitad de imagen) */
+    width: 32px !important;
+    height: 32px !important;
+    margin-top: 0 !important;
+    z-index: 10 !important;
+}
+
+/* Color y tamaño sutil del ícono (estilo Hubble) */
+.news-carousel-container .swiper-button-prev::after,
+.news-carousel-container .swiper-button-next::after {
+    font-size: 13px !important;
+    font-weight: bold !important;
+    color: #00a0e9 !important;
+}
+
+/* Separación respecto a los bordes laterales */
+.news-carousel-container .swiper-button-prev {
+    left: 5px !important;
+}
+
+.news-carousel-container .swiper-button-next {
+    right: 5px !important;
+}
+
+/* Efecto hover consistente */
+.news-carousel-container .swiper-button-prev:hover,
+.news-carousel-container .swiper-button-next:hover {
+    
+    transform: scale(1.08);
+}
+
+.news-carousel-container .swiper-button-prev:hover::after,
+.news-carousel-container .swiper-button-next:hover::after {
+    color: rgb(0, 50, 71) !important;
+}
+
+@media (max-width: 768px) {
+    .news-carousel-container {
+        overflow: hidden !important;
+    }
+    .news-carousel-container .swiper-button-prev {
+        left: 8px !important;
+    }
+    .news-carousel-container .swiper-button-next {
+        right: 8px !important;
+    }
+}
 
 /* SUBSCRIBE SECTION from styles-old.css */
 .subscribe-background {
@@ -689,28 +784,28 @@ ul {
     flex-direction: column;
 }
 
-.terminal-bar {
+/* .terminal-bar {
     background: #f0f0f0;
     padding: 12px 20px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
-}
+} */
 
-.terminal-dots { display: flex; gap: 8px; }
+/* .terminal-dots { display: flex; gap: 8px; }
 .terminal-dots span {
     width: 10px; height: 10px;
     border-radius: 50%;
     background: #ccc;
-}
+} */
 
-.terminal-id {
+/* .terminal-id {
     flex: 1;
     text-align: center;
     font-size: 0.75rem;
     letter-spacing: 2px;
     color: #888;
-}
+} */
 
 .terminal-body {
     flex: 1;
@@ -1163,7 +1258,7 @@ footer {
 
 .container-grid {
     display: grid;
-    grid-template-columns: 264px 792px 264px;
+    grid-template-columns: 300px 1fr 300px;
     gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
@@ -1184,10 +1279,11 @@ footer {
 }
 
 .entry-title {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: black;
+    line-height: 1.25;
 }
 
 .main-image-container img {
@@ -1204,21 +1300,20 @@ footer {
 }
 
 .entry-content {
-    margin-top: 30px;
-    line-height: 1.8;
-    font-size: 1.1rem;
+    margin-top: 20px; /* Antes 30px */
+    line-height: 1.6; /* Reducido de 1.8 */
+    font-size: 1rem; /* Reducido de 1.1rem */
     color: var(--text-muted);
-    background: #fff;
-    border: 1px solid var(--gold-accent);
-    padding: 15px;
-    border-radius: 2px;
+    background: transparent; /* Eliminamos el fondo y borde para que aproveche el 100% del ancho */
+    border: none; 
+    padding: 0; /* Antes 15px, lo que le robaba anchura al texto */
     margin-bottom: 20px;
 }
 
 .entry-content p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    font-size: 1.05rem; /* Antes 1.15rem */
+    line-height: 1.6; /* Antes 1.8 */
+    margin-bottom: 16px; /* Antes 20px */
     color: #333;
 }
 
@@ -1245,7 +1340,7 @@ footer {
     border-bottom: 2px solid var(--gold);
     display: inline-block;
     padding-bottom: 5px;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
@@ -1273,47 +1368,97 @@ footer {
 
 .spec-table {
     width: 100%;
+    table-layout: fixed; /* Evita que la tabla se desborde del contenedor */
     border-collapse: collapse;
+    word-wrap: break-word;
 }
 
 .spec-table th {
-    text-align: center;
-    font-size: 0.75rem;
+    text-align: left;
+    font-size: 0.72rem;
     text-transform: uppercase;
-    color: #777;
-    font-weight: 600;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    vertical-align: top;
-    width: 45%;
+    color: #000;
+    font-weight: 700;
+    padding: 8px 4px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    vertical-align: bottom;
+}
+
+/* Distribución proporcional de las 3 columnas */
+.spec-table th:nth-child(1),
+.spec-table td:nth-child(1) {
+    width: 32%; /* Band */
+}
+
+.spec-table th:nth-child(2),
+.spec-table td:nth-child(2) {
+    width: 26%; /* Wavelength */
+    text-align: center;
+}
+
+.spec-table th:nth-child(3),
+.spec-table td:nth-child(3) {
+    width: 42%; /* Telescope */
+    text-align: left;
 }
 
 .spec-table td {
-    text-align: left;
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 0.78rem;
+    color: #334155;
     font-weight: 500;
-    padding: 12px 4px;
+    padding: 10px 4px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    vertical-align: middle;
-    text-transform: uppercase;
+    vertical-align: top;
+    line-height: 1.35;
+    text-transform: none; /* Dejamos el texto con mayúsculas y minúsculas naturales */
 }
 
-.spec-table tr:last-child th,
 .spec-table tr:last-child td {
     border-bottom: none;
 }
 
+/* Enlaces del telescopio / instrumento */
 .spec-table td a {
-    color: #333;
+    color: #0077aa;
     text-decoration: none;
-    transition: color 0.2s;
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.25;
 }
 
 .spec-table td a:hover {
-    color: #007bff;
+    color: rgb(0, 50, 71);
     text-decoration: underline;
 }
+
+.spec-table .sub-instrument {
+    display: block;
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.spec-table .band-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.spec-table .band-subtext {
+    display: block;
+    font-size: 0.72rem;
+    color: #475569;
+    font-weight: normal;
+    margin-top: 2px;
+}
+
+/* Colores de las Bandas según el espectro original de la ESA */
+.band-color-optical { color: #8a2be2 !important; } /* Púrpura / Optical */
+.band-color-blue    { color: #0055d4 !important; } /* Azul / 1.87 μm */
+.band-color-cyan    { color: #00a8cc !important; } /* Cian / 2.0 μm */
+.band-color-yellow  { color: #d4a017 !important; } /* Amarillo / 3.35 μm */
+.band-color-orange  { color: #e65c00 !important; } /* Naranja / 4.44 μm */
+.band-color-red     { color: #d62828 !important; } /* Rojo / 4.7 μm */
 
 .widget-container {
     background: rgba(0, 0, 0, 0.03);
@@ -1787,4 +1932,145 @@ footer {
         flex-direction: column;
         gap: 15px;
     }
+}
+
+/* ==========================================================================
+   VIDEO PLAYBACK SECTION (Punto 10)
+   ========================================================================== */
+.video-playback-section {
+    width: 100%;
+    height: 50vh; /* Mitad de la altura de la pantalla */
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+    margin: 40px 0; /* Separación con las otras secciones */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garantiza que el video cubra todo el ancho sin deformarse */
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 30, 42, 0.5); /* Capa azul marino translúcida de la ESA */
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.video-content {
+    color: #fff;
+    max-width: 700px;
+    padding: 0 20px;
+    transform: translateY(20px);
+    transition: transform 0.5s ease;
+}
+
+.video-tag {
+    display: inline-block;
+    color: #00a0e9; 
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.video-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.video-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #00a0e9 !important;
+    color: #fff !important;
+    border: none;
+    font-size: 1rem;
+    padding: 12px 30px;
+}
+
+.video-btn:hover {
+    background: #003247 !important;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   VIDEO MODAL POPUP
+   ========================================================================== */
+.video-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 3000; /* Asegurarse de que esté por encima de la barra de navegación */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px; /* Ancho máximo para pantallas grandes */
+    background: #000;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    aspect-ratio: 16 / 9; /* Mantiene la proporción clásica de video */
+}
+
+.video-modal-content video {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    display: block;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 3001;
+}
+
+.video-modal-close:hover {
+    color: #00a0e9;
 }
